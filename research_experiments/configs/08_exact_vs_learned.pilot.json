@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "description": "08_exact_vs_learned; preconfigured comparisons, no automatic winner selection; PILOT metrics with reduced references are not publication estimates",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "08_exact_vs_learned",
+    "phase": "development",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 50,
+      "source": "learned"
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    },
+    "checkpoint": "checkpoints/dim_{dim}/model_dim{dim}_K{components}_dseed{distribution_seed}.pth",
+    "distribution": {
+      "family": "legacy_random",
+      "dim": 10,
+      "components": 2
+    },
+    "evaluation": {
+      "trajectory_alignment": true,
+      "reference_restarts": 32
+    }
+  },
+  "grid": {
+    "seed": [
+      0,
+      1
+    ],
+    "distribution_seed": [
+      0
+    ],
+    "distribution.dim": [
+      10
+    ]
+  },
+  "variants": [
+    {
+      "label": "exact",
+      "config": {
+        "field": "exact"
+      }
+    },
+    {
+      "label": "learned",
+      "config": {
+        "field": "learned"
+      }
+    }
+  ]
+}

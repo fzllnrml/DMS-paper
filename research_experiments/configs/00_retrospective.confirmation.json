@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "description": "00_retrospective; preconfigured comparisons, no automatic winner selection",
+  "defaults": {
+    "task": "retrospective",
+    "suite": "00_retrospective",
+    "phase": "development",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    },
+    "retrospective": {
+      "reductions": [
+        {
+          "label": "complete_medoid",
+          "kind": "cluster",
+          "radius": 0.5,
+          "linkage": "complete",
+          "representative": "medoid"
+        },
+        {
+          "label": "complete_mean",
+          "kind": "cluster",
+          "radius": 0.5,
+          "linkage": "complete",
+          "representative": "mean"
+        },
+        {
+          "label": "mean_shift",
+          "kind": "mean_shift",
+          "bandwidth": 0.5,
+          "iterations": 20
+        },
+        {
+          "label": "farthest_16",
+          "kind": "farthest",
+          "k": 16
+        },
+        {
+          "label": "facility_16",
+          "kind": "facility",
+          "k": 16
+        }
+      ]
+    }
+  },
+  "grid": {},
+  "variants": [
+    {
+      "label": "archive_inventory",
+      "config": {}
+    }
+  ]
+}

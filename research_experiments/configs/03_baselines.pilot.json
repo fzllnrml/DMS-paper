@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "description": "03_baselines; preconfigured comparisons, no automatic winner selection; PILOT metrics with reduced references are not publication estimates",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "03_baselines",
+    "phase": "development",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      0,
+      1
+    ],
+    "distribution_seed": [
+      0
+    ]
+  },
+  "variants": [
+    {
+      "label": "ddim",
+      "config": {
+        "method": {
+          "name": "sampling"
+        }
+      }
+    },
+    {
+      "label": "ddim_cluster",
+      "config": {
+        "method": {
+          "name": "sampling",
+          "merge": {
+            "when": "final",
+            "radius": 0.2
+          }
+        }
+      }
+    },
+    {
+      "label": "independent",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "none"
+          }
+        }
+      }
+    },
+    {
+      "label": "independent_final_cluster",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "final",
+            "radius": 0.2
+          }
+        }
+      }
+    },
+    {
+      "label": "single_level",
+      "config": {
+        "method": {
+          "levels": [
+            100
+          ],
+          "steps": 45,
+          "merge": {
+            "when": "final"
+          }
+        }
+      }
+    },
+    {
+      "label": "matched_pool_medoid",
+      "config": {
+        "population": 60,
+        "method": {
+          "name": "sampling",
+          "selection": {
+            "kind": "medoid",
+            "k": 16
+          }
+        }
+      }
+    },
+    {
+      "label": "ddim_mean_shift",
+      "config": {
+        "method": {
+          "name": "sampling",
+          "selection": {
+            "kind": "mean_shift",
+            "bandwidth": 0.5
+          }
+        }
+      }
+    },
+    {
+      "label": "ddim_facility",
+      "config": {
+        "method": {
+          "name": "sampling",
+          "selection": {
+            "kind": "facility",
+            "k": 8
+          }
+        }
+      }
+    },
+    {
+      "label": "historical_v3f2",
+      "config": {
+        "method": {
+          "name": "historical_v3f2",
+          "merge": {
+            "radius": 0.2,
+            "radius_factor": 1.0,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "historical_v2",
+      "config": {
+        "method": {
+          "name": "historical_v2",
+          "merge": {
+            "radius": 0.2,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "historical_v3f1",
+      "config": {
+        "method": {
+          "name": "historical_v3f1",
+          "merge": {
+            "radius": 0.2,
+            "radius_factor": 1.0,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "historical_v3f3",
+      "config": {
+        "method": {
+          "name": "historical_v3f3",
+          "historical_kwargs": {
+            "ode_steps_coarse": 15,
+            "ode_steps_fine": 5
+          }
+        },
+        "initialization": {
+          "stop_t": 800
+        }
+      }
+    },
+    {
+      "label": "historical_v1",
+      "config": {
+        "method": {
+          "name": "historical_v1",
+          "step_mode": "raw",
+          "step_size": 0.01
+        }
+      }
+    },
+    {
+      "label": "b0_ddpm",
+      "config": {
+        "initialization": {
+          "kind": "ddpm"
+        },
+        "method": {
+          "name": "sampling",
+          "box": null,
+          "merge": {
+            "when": "final",
+            "radius": 0.5,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "b10_ddpm",
+      "config": {
+        "initialization": {
+          "kind": "ddpm"
+        },
+        "method": {
+          "levels": [
+            0
+          ],
+          "steps": 10,
+          "step_mode": "raw",
+          "step_size": 0.01,
+          "final_steps": 0,
+          "box": null,
+          "merge": {
+            "when": "final",
+            "radius": 0.5,
+            "representative": "mean"
+          }
+        }
+      }
+    }
+  ]
+}

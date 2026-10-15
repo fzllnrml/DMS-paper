@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "description": "01_step_size; preconfigured comparisons, no automatic winner selection",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "01_step_size",
+    "phase": "confirmation",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ],
+    "distribution_seed": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "distribution.dim": [
+      2,
+      10,
+      30,
+      50
+    ]
+  },
+  "variants": [
+    {
+      "label": "l2_length",
+      "config": {},
+      "grid": {
+        "method.step_size": [
+          0.01,
+          0.03,
+          0.1,
+          0.3,
+          0.84,
+          1.4,
+          2.8
+        ]
+      }
+    },
+    {
+      "label": "smaller_more_steps",
+      "config": {
+        "method": {
+          "steps": 10,
+          "step_size": 0.05
+        }
+      }
+    }
+  ]
+}

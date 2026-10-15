@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "description": "05_split; preconfigured comparisons, no automatic winner selection",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "05_split",
+    "phase": "confirmation",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 8,
+    "method": {
+      "step_size": 0.1,
+      "steps": 2,
+      "final_steps": 20,
+      "box": [
+        -15.0,
+        15.0
+      ],
+      "levels": [
+        100,
+        20,
+        0
+      ],
+      "split": {
+        "probe_steps": 6,
+        "max_particles": 64
+      }
+    },
+    "budget": 2000,
+    "distribution": {
+      "family": "moderate",
+      "separation": 2.3
+    }
+  },
+  "grid": {
+    "seed": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ],
+    "distribution_seed": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "distribution.dim": [
+      2,
+      10,
+      30,
+      50
+    ]
+  },
+  "variants": [
+    {
+      "label": "no_split",
+      "config": {}
+    },
+    {
+      "label": "kernel_v2",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v2"
+          }
+        }
+      }
+    },
+    {
+      "label": "kernel_v3f1",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v3f1"
+          }
+        }
+      }
+    },
+    {
+      "label": "coordinate_probes",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "axes"
+          }
+        }
+      }
+    },
+    {
+      "label": "more_independent",
+      "config": {
+        "population": 32
+      }
+    },
+    {
+      "label": "boundary_kernel",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v2",
+            "boundary_only": true
+          }
+        }
+      }
+    },
+    {
+      "label": "historical_v2",
+      "config": {
+        "method": {
+          "name": "historical_v2"
+        },
+        "budget": null
+      }
+    },
+    {
+      "label": "historical_v3f1",
+      "config": {
+        "method": {
+          "name": "historical_v3f1"
+        },
+        "budget": null
+      }
+    }
+  ]
+}

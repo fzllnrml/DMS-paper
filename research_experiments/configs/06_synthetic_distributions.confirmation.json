@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "description": "06_synthetic_distributions; preconfigured comparisons, no automatic winner selection",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "06_synthetic_distributions",
+    "phase": "confirmation",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ],
+    "distribution_seed": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "distribution.dim": [
+      2,
+      10,
+      30,
+      50
+    ]
+  },
+  "variants": [
+    {
+      "label": "separated",
+      "config": {
+        "distribution": {
+          "family": "separated"
+        }
+      }
+    },
+    {
+      "label": "moderate",
+      "config": {
+        "distribution": {
+          "family": "moderate"
+        }
+      }
+    },
+    {
+      "label": "overlap",
+      "config": {
+        "distribution": {
+          "family": "overlap"
+        }
+      }
+    },
+    {
+      "label": "rare",
+      "config": {
+        "distribution": {
+          "family": "rare"
+        }
+      }
+    },
+    {
+      "label": "anisotropic",
+      "config": {
+        "distribution": {
+          "family": "anisotropic"
+        }
+      }
+    },
+    {
+      "label": "basins",
+      "config": {
+        "distribution": {
+          "family": "basins"
+        }
+      }
+    },
+    {
+      "label": "many",
+      "config": {
+        "distribution": {
+          "family": "many",
+          "components": 8
+        }
+      }
+    },
+    {
+      "label": "uneven",
+      "config": {
+        "distribution": {
+          "family": "uneven",
+          "components": 6
+        }
+      }
+    },
+    {
+      "label": "bifurcation",
+      "config": {
+        "distribution": {
+          "family": "bifurcation"
+        }
+      },
+      "grid": {
+        "distribution.separation": [
+          1.5,
+          1.9,
+          2.0,
+          2.1,
+          2.8,
+          4.0
+        ]
+      }
+    },
+    {
+      "label": "historical_geometry",
+      "config": {
+        "distribution": {
+          "family": "legacy_random",
+          "components": 4
+        }
+      }
+    }
+  ]
+}

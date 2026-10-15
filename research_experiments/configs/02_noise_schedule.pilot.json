@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "description": "02_noise_schedule; preconfigured comparisons, no automatic winner selection; PILOT metrics with reduced references are not publication estimates",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "02_noise_schedule",
+    "phase": "development",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      0,
+      1
+    ],
+    "distribution_seed": [
+      0
+    ]
+  },
+  "variants": [
+    {
+      "label": "full",
+      "config": {
+        "method": {
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5
+        }
+      },
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.1,
+          0.3
+        ]
+      }
+    },
+    {
+      "label": "single300",
+      "config": {
+        "method": {
+          "levels": [
+            300
+          ],
+          "steps": 45
+        }
+      },
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.1,
+          0.3
+        ]
+      }
+    },
+    {
+      "label": "single100",
+      "config": {
+        "method": {
+          "levels": [
+            100
+          ],
+          "steps": 45
+        }
+      },
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.1,
+          0.3
+        ]
+      }
+    },
+    {
+      "label": "single500",
+      "config": {
+        "method": {
+          "levels": [
+            500
+          ],
+          "steps": 45
+        }
+      },
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.1,
+          0.3
+        ]
+      }
+    },
+    {
+      "label": "single0",
+      "config": {
+        "method": {
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      },
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.1,
+          0.3
+        ]
+      }
+    },
+    {
+      "label": "three",
+      "config": {
+        "method": {
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      },
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.1,
+          0.3
+        ]
+      }
+    },
+    {
+      "label": "short",
+      "config": {
+        "method": {
+          "levels": [
+            300,
+            50,
+            0
+          ],
+          "steps": 15
+        }
+      },
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.1,
+          0.3
+        ]
+      }
+    },
+    {
+      "label": "scaled_full",
+      "config": {
+        "method": {
+          "coordinate_mode": "scaled"
+        }
+      },
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.1,
+          0.3
+        ]
+      }
+    }
+  ]
+}

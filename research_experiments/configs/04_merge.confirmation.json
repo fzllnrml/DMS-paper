@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "description": "04_merge; preconfigured comparisons, no automatic winner selection",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "04_merge",
+    "phase": "confirmation",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ],
+    "distribution_seed": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "distribution.dim": [
+      2,
+      10,
+      30,
+      50
+    ]
+  },
+  "variants": [
+    {
+      "label": "none",
+      "config": {}
+    },
+    {
+      "label": "final",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "final"
+          }
+        }
+      },
+      "grid": {
+        "method.merge.radius": [
+          0.1,
+          0.4,
+          0.8
+        ]
+      }
+    },
+    {
+      "label": "intermediate_medoid",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every"
+          }
+        }
+      },
+      "grid": {
+        "method.merge.radius": [
+          0.1,
+          0.4,
+          0.8
+        ]
+      }
+    },
+    {
+      "label": "intermediate_mean",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "representative": "mean"
+          }
+        }
+      },
+      "grid": {
+        "method.merge.radius": [
+          0.1,
+          0.4,
+          0.8
+        ]
+      }
+    },
+    {
+      "label": "periodic",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "every": 3
+          }
+        }
+      }
+    },
+    {
+      "label": "noise_radius",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius_factor": 1.0
+          }
+        }
+      }
+    },
+    {
+      "label": "stable",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "stable",
+            "stable_threshold": 0.01
+          }
+        }
+      }
+    },
+    {
+      "label": "aligned",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "direction_cosine": 0.9
+          }
+        }
+      }
+    },
+    {
+      "label": "reallocate_continue",
+      "config": {
+        "budget": 1200,
+        "method": {
+          "merge": {
+            "when": "every"
+          },
+          "budget_policy": "continue",
+          "extra_steps": 1000
+        }
+      }
+    },
+    {
+      "label": "reallocate_restarts",
+      "config": {
+        "budget": 1200,
+        "method": {
+          "merge": {
+            "when": "every"
+          },
+          "budget_policy": "restarts",
+          "max_extra_starts": 16,
+          "extra_steps": 10
+        }
+      }
+    },
+    {
+      "label": "reallocate_jitter",
+      "config": {
+        "budget": 1200,
+        "method": {
+          "merge": {
+            "when": "every"
+          },
+          "budget_policy": "farthest_jitter",
+          "max_extra_starts": 16,
+          "extra_steps": 10
+        }
+      }
+    }
+  ]
+}

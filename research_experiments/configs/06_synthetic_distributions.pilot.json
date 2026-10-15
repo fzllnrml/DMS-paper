@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "description": "06_synthetic_distributions; preconfigured comparisons, no automatic winner selection; PILOT metrics with reduced references are not publication estimates",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "06_synthetic_distributions",
+    "phase": "development",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      0,
+      1
+    ],
+    "distribution_seed": [
+      0
+    ],
+    "distribution.dim": [
+      2
+    ]
+  },
+  "variants": [
+    {
+      "label": "separated",
+      "config": {
+        "distribution": {
+          "family": "separated"
+        }
+      }
+    },
+    {
+      "label": "moderate",
+      "config": {
+        "distribution": {
+          "family": "moderate"
+        }
+      }
+    },
+    {
+      "label": "overlap",
+      "config": {
+        "distribution": {
+          "family": "overlap"
+        }
+      }
+    },
+    {
+      "label": "rare",
+      "config": {
+        "distribution": {
+          "family": "rare"
+        }
+      }
+    },
+    {
+      "label": "anisotropic",
+      "config": {
+        "distribution": {
+          "family": "anisotropic"
+        }
+      }
+    },
+    {
+      "label": "basins",
+      "config": {
+        "distribution": {
+          "family": "basins"
+        }
+      }
+    },
+    {
+      "label": "many",
+      "config": {
+        "distribution": {
+          "family": "many",
+          "components": 8
+        }
+      }
+    },
+    {
+      "label": "uneven",
+      "config": {
+        "distribution": {
+          "family": "uneven",
+          "components": 6
+        }
+      }
+    },
+    {
+      "label": "bifurcation",
+      "config": {
+        "distribution": {
+          "family": "bifurcation"
+        }
+      },
+      "grid": {
+        "distribution.separation": [
+          1.5,
+          1.9,
+          2.0,
+          2.1,
+          2.8,
+          4.0
+        ]
+      }
+    },
+    {
+      "label": "historical_geometry",
+      "config": {
+        "distribution": {
+          "family": "legacy_random",
+          "components": 4
+        }
+      }
+    }
+  ]
+}

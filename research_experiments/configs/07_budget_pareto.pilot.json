@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "description": "07_budget_pareto; preconfigured comparisons, no automatic winner selection; PILOT metrics with reduced references are not publication estimates",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "07_budget_pareto",
+    "phase": "development",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.1,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -15.0,
+        15.0
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      0
+    ],
+    "distribution_seed": [
+      0
+    ]
+  },
+  "variants": [
+    {
+      "label": "refinement",
+      "config": {
+        "method": {
+          "budget_policy": "continue",
+          "extra_steps": 10000
+        }
+      },
+      "grid": {
+        "population": [
+          8,
+          16
+        ],
+        "budget": [
+          1200
+        ],
+        "initialization.ddim_steps": [
+          20
+        ],
+        "method.selection.k": [
+          8
+        ],
+        "method.selection.kind": [
+          "medoid"
+        ]
+      }
+    },
+    {
+      "label": "merge",
+      "config": {
+        "method": {
+          "budget_policy": "continue",
+          "extra_steps": 10000,
+          "merge": {
+            "when": "every"
+          }
+        }
+      },
+      "grid": {
+        "population": [
+          8,
+          16
+        ],
+        "budget": [
+          1200
+        ],
+        "initialization.ddim_steps": [
+          20
+        ],
+        "method.selection.k": [
+          8
+        ],
+        "method.selection.kind": [
+          "medoid"
+        ]
+      }
+    },
+    {
+      "label": "restarts",
+      "config": {
+        "method": {
+          "budget_policy": "restarts",
+          "extra_steps": 20,
+          "merge": {
+            "when": "every"
+          },
+          "max_extra_starts": 64
+        }
+      },
+      "grid": {
+        "population": [
+          8,
+          16
+        ],
+        "budget": [
+          1200
+        ],
+        "initialization.ddim_steps": [
+          20
+        ],
+        "method.selection.k": [
+          8
+        ],
+        "method.selection.kind": [
+          "medoid"
+        ]
+      }
+    },
+    {
+      "label": "sampling_P16",
+      "config": {
+        "population": 16,
+        "method": {
+          "name": "sampling",
+          "selection": {
+            "kind": "medoid",
+            "k": 8
+          }
+        }
+      },
+      "grid": {
+        "initialization.ddim_steps": [
+          10,
+          20,
+          50
+        ]
+      }
+    },
+    {
+      "label": "sampling_P32",
+      "config": {
+        "population": 32,
+        "method": {
+          "name": "sampling",
+          "selection": {
+            "kind": "medoid",
+            "k": 8
+          }
+        }
+      },
+      "grid": {
+        "initialization.ddim_steps": [
+          10,
+          20,
+          50
+        ]
+      }
+    },
+    {
+      "label": "sampling_P64",
+      "config": {
+        "population": 64,
+        "method": {
+          "name": "sampling",
+          "selection": {
+            "kind": "medoid",
+            "k": 8
+          }
+        }
+      },
+      "grid": {
+        "initialization.ddim_steps": [
+          10,
+          20,
+          50
+        ]
+      }
+    },
+    {
+      "label": "matched_sampling_20",
+      "config": {
+        "population": 200,
+        "budget": 4000,
+        "initialization": {
+          "ddim_steps": 20
+        },
+        "method": {
+          "name": "sampling",
+          "selection": {
+            "kind": "medoid",
+            "k": 16
+          }
+        }
+      }
+    },
+    {
+      "label": "matched_sampling_50",
+      "config": {
+        "population": 80,
+        "budget": 4000,
+        "initialization": {
+          "ddim_steps": 50
+        },
+        "method": {
+          "name": "sampling",
+          "selection": {
+            "kind": "medoid",
+            "k": 16
+          }
+        }
+      }
+    }
+  ]
+}

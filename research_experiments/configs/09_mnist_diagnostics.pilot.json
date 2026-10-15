@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "description": "09_mnist_diagnostics; preconfigured comparisons, no automatic winner selection; PILOT metrics with reduced references are not publication estimates",
+  "defaults": {
+    "task": "mnist",
+    "suite": "09_mnist_diagnostics",
+    "phase": "development",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 50
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.03,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -1.0,
+        1.0
+      ],
+      "step_mode": "rms",
+      "tolerance": 1e-06
+    },
+    "field": "learned",
+    "checkpoint": "runs/mnist/checkpoints/best.pt",
+    "device": "mps",
+    "distribution": {
+      "dim": 784
+    },
+    "model_seed": 42,
+    "mnist": {
+      "train_limit": 2048,
+      "validation_limit": 128,
+      "diagnostic_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      0
+    ]
+  },
+  "variants": [
+    {
+      "label": "ddim",
+      "config": {
+        "method": {
+          "name": "sampling"
+        }
+      }
+    },
+    {
+      "label": "multi",
+      "config": {}
+    },
+    {
+      "label": "single300",
+      "config": {
+        "method": {
+          "levels": [
+            300
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single100",
+      "config": {
+        "method": {
+          "levels": [
+            100
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "short",
+      "config": {
+        "method": {
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      }
+    },
+    {
+      "label": "large_step",
+      "config": {
+        "method": {
+          "step_size": 0.06
+        }
+      }
+    },
+    {
+      "label": "small_step",
+      "config": {
+        "method": {
+          "step_size": 0.01
+        }
+      }
+    },
+    {
+      "label": "final_medoid",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "final",
+            "radius": 0.65,
+            "metric": "rms"
+          }
+        }
+      }
+    },
+    {
+      "label": "intermediate",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.65,
+            "metric": "rms"
+          }
+        }
+      }
+    }
+  ]
+}

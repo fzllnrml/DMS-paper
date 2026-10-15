@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "description": "Small optional exact-clean numerical basin diagnostics; additional optimizer cost is recorded separately",
+  "defaults": {
+    "task": "synthetic",
+    "suite": "01_step_size",
+    "phase": "development",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 20
+    },
+    "population": 4,
+    "method": {
+      "step_size": 0.1,
+      "steps": 3,
+      "final_steps": 2,
+      "box": [
+        -15.0,
+        15.0
+      ],
+      "levels": [
+        100,
+        0
+      ]
+    },
+    "evaluation": {
+      "basin_diagnostics": true,
+      "radii": [
+        0.1,
+        0.25,
+        0.5
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      0
+    ],
+    "distribution_seed": [
+      0
+    ]
+  },
+  "variants": [
+    {
+      "label": "basin_probe",
+      "config": {},
+      "grid": {
+        "method.step_size": [
+          0.03,
+          0.3,
+          1.4
+        ]
+      }
+    }
+  ]
+}

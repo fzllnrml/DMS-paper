@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "description": "01_step_size; preconfigured comparisons, no automatic winner selection",
+  "defaults": {
+    "task": "mnist",
+    "suite": "01_step_size",
+    "phase": "confirmation",
+    "initialization": {
+      "kind": "ddim",
+      "ddim_steps": 50
+    },
+    "population": 16,
+    "method": {
+      "step_size": 0.03,
+      "steps": 5,
+      "final_steps": 10,
+      "box": [
+        -1.0,
+        1.0
+      ],
+      "step_mode": "rms",
+      "tolerance": 1e-06
+    },
+    "field": "learned",
+    "checkpoint": "runs/mnist_seed{model_seed}/checkpoints/best.pt",
+    "device": "mps",
+    "distribution": {
+      "dim": 784
+    },
+    "model_seed": 43,
+    "mnist": {
+      "train_limit": null,
+      "validation_limit": 1024,
+      "diagnostic_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  },
+  "grid": {
+    "seed": [
+      100,
+      101,
+      102,
+      103,
+      104
+    ],
+    "model_seed": [
+      43,
+      44
+    ]
+  },
+  "variants": [
+    {
+      "label": "rms_length",
+      "config": {},
+      "grid": {
+        "method.step_size": [
+          0.003,
+          0.01,
+          0.02,
+          0.03,
+          0.05,
+          0.1,
+          0.2
+        ]
+      }
+    },
+    {
+      "label": "shorter_longer",
+      "config": {
+        "method": {
+          "step_size": 0.015,
+          "steps": 10,
+          "final_steps": 20
+        }
+      }
+    }
+  ]
+}
