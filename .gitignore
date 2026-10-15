@@ -1,0 +1,46 @@
+# Python environment
+.venv/
+.venv-*/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# macOS
+.DS_Store
+
+# Experiment outputs
+/runs/
+/logs/
+/tmp/
+/cache/
+*.log
+
+# Downloaded MNIST
+/data/mnist/
+
+# Local backups
+/.git-old-backup/
+
+# Secrets
+.env
+.env.*
+# New experiment runs remain local
+/runs/
+
+# Local environments and secrets
+.venv/
+.venv-*/
+.env
+.env.*
+!.env.example
+
+# Temporary files
+.ipynb_checkpoints/
+*.log
+.DS_Store

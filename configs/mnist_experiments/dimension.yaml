@@ -1,0 +1,35 @@
+output_root: runs/mnist_experiments/dimension
+defaults:
+  device: mps
+  evaluation:
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    require_evaluator: true
+experiments:
+- name: pca_dimension
+  config:
+    checkpoint: runs/mnist_pca/d{dimension}_seed{model_seed}/best.pt
+    model_seed: 42
+    population_size: 64
+    methods:
+    - original
+    - ddim
+    - ddim_cluster
+    - matched_ddim
+    - matched_cluster
+    search:
+      projection: none
+    stability:
+      projection: none
+  grid:
+    dimension:
+    - 16
+    - 32
+    - 64
+    - 128
+    - 256
+    - 512
+    - 784
+    search_seed:
+    - 0
+    - 1
+    - 2

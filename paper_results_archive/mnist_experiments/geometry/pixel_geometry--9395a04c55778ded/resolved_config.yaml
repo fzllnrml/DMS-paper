@@ -1,0 +1,82 @@
+kind: search
+checkpoint: runs/mnist/checkpoints/best.pt
+model_seed: 42
+search_seed: 0
+initial_noise_seed: 0
+device: mps
+batch_size: 128
+population_size: 32
+ddim_steps: 50
+initialization: ddim
+methods:
+- original
+- ddim_cluster
+search:
+  schedule:
+    kind: explicit
+    timesteps:
+    - 800
+    - 500
+    - 300
+    - 200
+    - 100
+    - 50
+    - 20
+    - 5
+    - 0
+  step_mode: rms
+  alpha: 0.01
+  steps_per_level: 5
+  final_steps: 10
+  final_t: 0
+  final_step_scale: 0.1
+  projection: clamp
+  tolerance: 1.0e-06
+  save_trajectory: true
+  merge:
+    metric: rms_euclidean
+    schedule: every_level
+    selected_levels: []
+    representative: mean
+    radius_schedule: constant
+    radius: 0.5
+    coefficient: 0.8
+    min_radius: 0.05
+    noise_units: legacy_sigma
+    legacy_t0_sigma: 0.01
+    max_particles: 4096
+evaluation:
+  enabled: true
+  data_root: data/mnist
+  download: false
+  evaluator_checkpoint: runs/mnist_evaluator/best.pt
+  require_evaluator: true
+  knn_k: 5
+  train_limit: null
+  validation_limit: 256
+  include_test: false
+stability:
+  enabled: false
+  scales:
+  - 0.005
+  - 0.01
+  directions: 4
+  steps: 20
+  alpha: 0.001
+  step_mode: l2
+  projection: clamp
+  t: 0
+  return_radius: 0.01
+curvature:
+  enabled: false
+  directions: 8
+  epsilon: 0.01
+  t: 0
+visualization:
+  enabled: true
+  max_images: 64
+  trajectory_particles: 4
+  merge_comparison: false
+max_matched_samples: 10000
+variant: pixel_geometry
+suite_id: pixel_geometry--9395a04c55778ded

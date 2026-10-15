@@ -1,0 +1,11 @@
+{
+  "bootstrap_seed": 123,
+  "bootstrap_repeats": 50,
+  "strata": [
+    "seed42 complete curve",
+    "replicated anchor dimensions"
+  ],
+  "partial_runs": "retained in raw table, excluded from primary summaries",
+  "expected_search_jobs": 3,
+  "completed_search_jobs": 3
+}

@@ -1,0 +1,13 @@
+output_root: runs/mnist_experiments/model_seeds_prepare
+defaults: {}
+experiments:
+- name: pixel_train
+  config:
+    kind: pixel_train
+    base_config: configs/mnist.yaml
+    training_output: runs/mnist_seed{model_seed}
+    device: mps
+  grid:
+    model_seed:
+    - 43
+    - 44

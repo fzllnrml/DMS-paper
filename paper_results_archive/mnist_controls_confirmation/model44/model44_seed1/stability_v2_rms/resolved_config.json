@@ -1,0 +1,41 @@
+{
+  "protocol": "mnist_controls_confirmation_v1",
+  "search_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "population_size": 128,
+  "pool_size": 268,
+  "batch_size": 128,
+  "methods": [
+    "ddim_105",
+    "low_noise_only",
+    "ddim_pool_representatives"
+  ],
+  "diagnostics": [
+    "stability_v2_rms",
+    "stability_v2_ddim"
+  ],
+  "evaluation": {
+    "enabled": true,
+    "data_root": "data/mnist",
+    "download": false,
+    "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+    "require_evaluator": true,
+    "knn_k": 5,
+    "train_limit": null,
+    "validation_limit": 1024,
+    "include_test": true,
+    "reference_cache": "runs/mnist_experiments/publication_reference",
+    "unusually_close_quantile": 0.01
+  },
+  "device": "mps",
+  "publication_root": "runs/mnist_experiments/publication_main",
+  "model_seed": 44,
+  "checkpoint": "runs/mnist_seed44/checkpoints/best.pt",
+  "publication_suites": {},
+  "output_root": "runs/mnist_controls_confirmation/model44"
+}

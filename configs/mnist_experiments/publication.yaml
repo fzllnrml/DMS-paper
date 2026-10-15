@@ -1,0 +1,53 @@
+output_root: runs/mnist_experiments/publication
+defaults:
+  device: mps
+  evaluation:
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    require_evaluator: true
+experiments:
+- name: locked_original_existing
+  config:
+    variant: locked_original
+    methods: &id001
+    - original
+    - ddim
+    - ddim_cluster
+    - final_refine
+    - no_intermediate_merge
+    - low_noise_only
+    - matched_ddim
+    - matched_cluster
+    evaluation: &id002
+      include_test: true
+      validation_limit: null
+    stability: &id003
+      enabled: true
+    curvature: &id004
+      enabled: true
+    checkpoint: runs/mnist/checkpoints/best.pt
+    model_seed: 42
+  grid:
+    search_seed:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+- name: locked_original_models
+  config:
+    variant: locked_original
+    methods: *id001
+    evaluation: *id002
+    stability: *id003
+    curvature: *id004
+    checkpoint: runs/mnist_seed{model_seed}/checkpoints/best.pt
+  grid:
+    model_seed:
+    - 43
+    - 44
+    search_seed:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4

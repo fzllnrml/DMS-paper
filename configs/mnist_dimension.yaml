@@ -1,0 +1,29 @@
+protocol: mnist_dimension_v1
+root: runs/mnist_dimension
+source_checkpoint: runs/mnist/checkpoints/best.pt
+recipe_checkpoint: runs/mnist/checkpoints/latest.pt
+data_root: data/mnist
+download: false
+evaluator_checkpoint: runs/mnist_evaluator/best.pt
+device: auto
+dimensions: [16, 32, 64, 128, 256, 512, 784]
+replicated_dimensions: [16, 128, 784]
+model_seeds: [42, 43, 44]
+pixel_model_seeds: [42, 43, 44]
+pixel_checkpoints:
+  42: runs/mnist/checkpoints/best.pt
+  43: runs/mnist_seed43/checkpoints/best.pt
+  44: runs/mnist_seed44/checkpoints/best.pt
+search_seeds: [0, 1, 2, 3, 4]
+population_size: 128
+ddim_steps: 50
+hidden: [256, 256, 256]
+batch_size: 128
+knn_k: 5
+reference_validation_count: 1024
+quality_validation_count: 256
+quality_timesteps: [0, 20, 100, 300, 500, 800, 999]
+sanity_count: 128
+sanity_seed: 1729
+visual_search_seeds: [0]
+max_visual_images: 16

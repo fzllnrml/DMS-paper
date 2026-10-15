@@ -1,0 +1,82 @@
+output_root: runs/mnist_experiments/rms_screen
+
+defaults:
+  device: mps
+  evaluation:
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    require_evaluator: true
+
+experiments:
+
+- name: rms_baseline
+  config:
+    population_size: 64
+    ddim_steps: 50
+    methods:
+      - ddim
+  grid:
+    search_seed:
+      - 0
+      - 1
+
+- name: rms_alpha
+  config:
+    population_size: 64
+    ddim_steps: 50
+    methods:
+      - original
+    search:
+      schedule:
+        kind: explicit
+        timesteps: [800, 500, 300, 200, 100, 50, 20, 5, 0]
+      step_mode: rms
+      steps_per_level: 5
+      final_steps: 10
+      final_t: 0
+      final_step_scale: 0.1
+      projection: clamp
+      merge:
+        schedule: none
+  grid:
+    search.alpha:
+      - 0.003
+      - 0.005
+      - 0.01
+      - 0.02
+      - 0.03
+    search_seed:
+      - 0
+      - 1
+
+- name: rms_merge
+  config:
+    population_size: 64
+    ddim_steps: 50
+    methods:
+      - original
+      - ddim_cluster
+    search:
+      schedule:
+        kind: explicit
+        timesteps: [800, 500, 300, 200, 100, 50, 20, 5, 0]
+      step_mode: rms
+      alpha: 0.01
+      steps_per_level: 5
+      final_steps: 10
+      final_t: 0
+      final_step_scale: 0.1
+      projection: clamp
+      merge:
+        metric: rms_euclidean
+        schedule: final_only
+        representative: medoid
+        radius_schedule: constant
+  grid:
+    search.merge.radius:
+      - 0.45
+      - 0.55
+      - 0.65
+      - 0.75
+    search_seed:
+      - 0
+      - 1

@@ -1,0 +1,13 @@
+output_root: runs/mnist_experiments/publication_training
+defaults:
+  kind: publication_train
+  source_checkpoint: runs/mnist/checkpoints/best.pt
+  source_latest_checkpoint: runs/mnist/checkpoints/latest.pt
+  training_output: runs/mnist_seed{model_seed}
+  device: auto
+experiments:
+- name: independent_model
+  grid:
+    model_seed:
+    - 43
+    - 44

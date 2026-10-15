@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "controls": {
+    "ddim_105": {
+      "eligible": true,
+      "pilot_practically_close": false,
+      "pilot_control_not_worse": false,
+      "pilot_search_clear_win": true
+    },
+    "low_noise_only": {
+      "eligible": true,
+      "pilot_practically_close": false,
+      "pilot_control_not_worse": false,
+      "pilot_search_clear_win": true
+    },
+    "ddim_pool_representatives": {
+      "eligible": true,
+      "pilot_practically_close": false,
+      "pilot_control_not_worse": false,
+      "pilot_search_clear_win": true
+    }
+  },
+  "interpretation": "Operational pilot rules only; three seeds do not establish statistical equivalence",
+  "next_action": "No automatic launch; review the frozen NEXT_EXPERIMENTS.md",
+  "search_diversity_guardrail_violated": false,
+  "branch": "one_confirmation_all_three_controls",
+  "stability_pilot_positive": true,
+  "stability_drift_small": true,
+  "stability_confirmation_eligible": true
+}

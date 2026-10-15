@@ -1,0 +1,25 @@
+output_root: runs/mnist_experiments/matched_nfe
+defaults:
+  device: mps
+  evaluation:
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    require_evaluator: true
+experiments:
+- name: population_budget
+  config:
+    methods:
+    - original
+    - ddim
+    - ddim_cluster
+    - matched_ddim
+    - matched_cluster
+  grid:
+    population_size:
+    - 32
+    - 64
+    - 128
+    - 256
+    search_seed:
+    - 0
+    - 1
+    - 2

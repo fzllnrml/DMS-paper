@@ -1,0 +1,47 @@
+{
+  "signature": "20b4785f090c0640",
+  "implementation_sha256": "5bd5f89eab0f90f263fcb12b153dbd7545817a42a833a4216c535627972963d1",
+  "checkpoint_sha256": "bace789b0c9e848bb68c690eda66ccd5d8530996457344aed59cb8bd76382fd5",
+  "checkpoint_copy": "runs/mnist_experiments/diagnostic/checkpoints/bace789b0c9e848bb68c690eda66ccd5d8530996457344aed59cb8bd76382fd5.pt",
+  "evaluator_sha256": null,
+  "evaluator_copy": null,
+  "evaluator_validation_accuracy": null,
+  "model_seed": 42,
+  "search_seed": 0,
+  "initial_noise_seed": 0,
+  "git": {
+    "commit": "89b2d5a1ba92f19588f18c14413ddd7296a255b7",
+    "dirty": true
+  },
+  "torch_version": "2.14.0",
+  "device": "mps",
+  "created_at": "2026-09-11T05:56:25.470846+00:00",
+  "time_schedule": {
+    "parameterization": "explicit",
+    "requested": [
+      50,
+      15,
+      0
+    ],
+    "resolved": [
+      50,
+      15,
+      0
+    ],
+    "sigma": [
+      0.17334552109241486,
+      0.06311164796352386,
+      0.010000829584896564
+    ],
+    "log_snr": [
+      3.4744274616241455,
+      5.5217084884643555,
+      9.210074424743652
+    ],
+    "duplicates_collapsed": 0,
+    "t_zero_is_clean": false,
+    "sigma_at_zero": 0.010000829584896564
+  },
+  "space": "pixel",
+  "interpretation": "Mode candidates. Labels are external semantics, not true modes."
+}

@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "pilot_complete": true,
+  "confirmation_complete": true,
+  "same_evaluator_and_reference_cache": true,
+  "source_manifest_sha256": {
+    "runs/mnist_controls/manifest.json": "ad32f7798b28867b49c452114f8bbdca41aab819b68ec68b6c3c8a68f1a26313",
+    "runs/mnist_controls_confirmation/model43/manifest.json": "28eb6b6eab857b231a49d0b52c45f72922439966a50a600dbe71ae7a19b4059f",
+    "runs/mnist_controls_confirmation/model44/manifest.json": "be9808213b38c81b530ff2a2d1e1b2af1a360ae4ba2c3b2553d2226ebd853303"
+  },
+  "note": "Sources read only. Phases remain separate; pilot never enters confirmation confidence intervals. Missing/incompatible phases and failures remain explicit; no run-level values fabricated."
+}

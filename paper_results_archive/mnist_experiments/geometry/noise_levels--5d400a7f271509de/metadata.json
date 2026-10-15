@@ -1,0 +1,55 @@
+{
+  "signature": "b2d781d1121a1d24",
+  "implementation_sha256": "5bd5f89eab0f90f263fcb12b153dbd7545817a42a833a4216c535627972963d1",
+  "checkpoint_sha256": "bace789b0c9e848bb68c690eda66ccd5d8530996457344aed59cb8bd76382fd5",
+  "checkpoint_copy": "runs/mnist_experiments/geometry/checkpoints/bace789b0c9e848bb68c690eda66ccd5d8530996457344aed59cb8bd76382fd5.pt",
+  "evaluator_sha256": "3ae6949a1068d4393f7b9507d2b63daca3d39680d570bc7ec604c9fa1630a538",
+  "evaluator_copy": "runs/mnist_experiments/geometry/checkpoints/3ae6949a1068d4393f7b9507d2b63daca3d39680d570bc7ec604c9fa1630a538.pt",
+  "evaluator_validation_accuracy": 0.9892,
+  "model_seed": 42,
+  "search_seed": 0,
+  "initial_noise_seed": 0,
+  "git": {
+    "commit": "89b2d5a1ba92f19588f18c14413ddd7296a255b7",
+    "dirty": true
+  },
+  "torch_version": "2.14.0",
+  "device": "mps",
+  "created_at": "2026-09-11T06:26:23.960209+00:00",
+  "time_schedule": {
+    "parameterization": "log_snr",
+    "requested": [
+      -4.0,
+      -1.0,
+      2.0,
+      5.0,
+      8.0
+    ],
+    "resolved": [
+      628,
+      357,
+      107,
+      21,
+      2
+    ],
+    "sigma": [
+      0.9909294843673706,
+      0.8548060655593872,
+      0.344061017036438,
+      0.08233911544084549,
+      0.018966129049658775
+    ],
+    "log_snr": [
+      -3.9959025382995605,
+      -0.9981439113616943,
+      2.007880687713623,
+      4.9870147705078125,
+      7.929841041564941
+    ],
+    "duplicates_collapsed": 0,
+    "t_zero_is_clean": false,
+    "sigma_at_zero": 0.010000829584896564
+  },
+  "space": "pixel",
+  "interpretation": "Mode candidates. Labels are external semantics, not true modes."
+}

@@ -1,0 +1,50 @@
+{
+  "model_seed": 44,
+  "search_seed": 2,
+  "checkpoint_sha256": "6e772a81d4f2a0133c4ed86c30b93d1451b66d09c5cb917d068b872d2dd905a5",
+  "evaluator_sha256": "3ae6949a1068d4393f7b9507d2b63daca3d39680d570bc7ec604c9fa1630a538",
+  "publication_definition_hash": "0de12232d9a259c1",
+  "implementation": "810731dee4cc9c35fa2dc1af235945477f68187b117cd875dfb349b0c270312c",
+  "initial_gaussian_prefix_sha256": "c9efae00254f4e00781925808d85f14b2f46c0d15f24a98dc256863d6da55e8e",
+  "initial_ddim_prefix_sha256": "e6c30ac8c19ec05e99d468e8598485e9a40c227c1a2d5000693cde759e19b779",
+  "evaluation_cache_key": "a1f4683a746eff79",
+  "device": "mps",
+  "torch": "2.14.0",
+  "context_signature": "3d05f90bef413604",
+  "stability_summary": [
+    {
+      "scale": 0.02,
+      "valid_fraction": 1.0,
+      "median_rho": 0.4237881004810333,
+      "mean_rho": 0.4236510401824489,
+      "fraction_rho_lt_1": 1.0,
+      "fraction_rho_le_09": 1.0,
+      "median_reference_drift": 0.006753243040293455,
+      "valid_count": 256,
+      "total_directions": 256
+    },
+    {
+      "scale": 0.05,
+      "valid_fraction": 1.0,
+      "median_rho": 0.5987925827503204,
+      "mean_rho": 0.5971805315930396,
+      "fraction_rho_lt_1": 1.0,
+      "fraction_rho_le_09": 1.0,
+      "median_reference_drift": 0.006753243040293455,
+      "valid_count": 256,
+      "total_directions": 256
+    }
+  ],
+  "method": "stability_v2_rms",
+  "output_count": 128,
+  "kind": "diagnostic",
+  "nfe": 6400,
+  "newly_executed_nfe": 6400,
+  "reused_nfe": 0,
+  "diagnostic_nfe": 6400,
+  "forward_calls": 50,
+  "generation_wall_seconds": 5.147618749993853,
+  "pairing_type": "same direction RNG; reference and perturbed trajectories use identical ten-step map",
+  "process_peak_rss_bytes": 717881344,
+  "job_wall_seconds": 5.1519932500086725
+}

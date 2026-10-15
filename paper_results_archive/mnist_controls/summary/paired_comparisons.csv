@@ -1,0 +1,73 @@
+record_type,model_seed,search_seed,method,reference,metric,status,control_value,search_value,difference,pairing_type,n_complete,n_expected,practical_margin,gain_fraction,gain_fraction_note
+pair,42,0,ddim_105,rms_v3f2,pixel_knn_mean,complete,0.4065890908241272,0.3421304225921631,0.06445866823196411,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,1,ddim_105,rms_v3f2,pixel_knn_mean,complete,0.3983628451824188,0.3343852162361145,0.06397762894630432,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,2,ddim_105,rms_v3f2,pixel_knn_mean,complete,0.40853068232536316,0.3457513153553009,0.06277936697006226,same Gaussian prefix; different DDIM trajectory,,,,,
+mean,42,,ddim_105,rms_v3f2,pixel_knn_mean,complete,,,0.06373855471611023,,3,3,0.0069,0.04973953539209947,ratio of paired means
+pair,42,0,ddim_105,rms_v3f2,feature_knn_mean,complete,9.465387344360352,7.867549896240234,1.5978374481201172,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,1,ddim_105,rms_v3f2,feature_knn_mean,complete,9.192066192626953,7.427974224090576,1.764091968536377,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,2,ddim_105,rms_v3f2,feature_knn_mean,complete,9.640852928161621,7.829897880554199,1.8109550476074219,same Gaussian prefix; different DDIM trajectory,,,,,
+mean,42,,ddim_105,rms_v3f2,feature_knn_mean,complete,,,1.7242948214213054,,3,3,0.196,0.047348387552848495,ratio of paired means
+pair,42,0,ddim_105,rms_v3f2,pixel_support_percentile,complete,24.52545166015625,45.571136474609375,-21.045684814453125,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,1,ddim_105,rms_v3f2,pixel_support_percentile,complete,25.96588134765625,48.785400390625,-22.81951904296875,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,2,ddim_105,rms_v3f2,pixel_support_percentile,complete,23.162078857421875,43.817901611328125,-20.65582275390625,same Gaussian prefix; different DDIM trajectory,,,,,
+mean,42,,ddim_105,rms_v3f2,pixel_support_percentile,complete,,,-21.507008870442707,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,ddim_105,rms_v3f2,feature_support_percentile,complete,23.024749755859375,41.522979736328125,-18.49822998046875,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,1,ddim_105,rms_v3f2,feature_support_percentile,complete,24.044036865234375,45.052337646484375,-21.00830078125,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,2,ddim_105,rms_v3f2,feature_support_percentile,complete,21.154022216796875,40.67840576171875,-19.524383544921875,same Gaussian prefix; different DDIM trajectory,,,,,
+mean,42,,ddim_105,rms_v3f2,feature_support_percentile,complete,,,-19.676971435546875,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,ddim_105,rms_v3f2,class_coverage,complete,10,10,0,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,1,ddim_105,rms_v3f2,class_coverage,complete,10,10,0,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,2,ddim_105,rms_v3f2,class_coverage,complete,10,10,0,same Gaussian prefix; different DDIM trajectory,,,,,
+mean,42,,ddim_105,rms_v3f2,class_coverage,complete,,,0.0,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,ddim_105,rms_v3f2,class_entropy,complete,2.2472612857818604,2.2677395343780518,-0.020478248596191406,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,1,ddim_105,rms_v3f2,class_entropy,complete,2.247832775115967,2.233229637145996,0.014603137969970703,same Gaussian prefix; different DDIM trajectory,,,,,
+pair,42,2,ddim_105,rms_v3f2,class_entropy,complete,2.263817548751831,2.2719216346740723,-0.008104085922241211,same Gaussian prefix; different DDIM trajectory,,,,,
+mean,42,,ddim_105,rms_v3f2,class_entropy,complete,,,-0.004659732182820638,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,low_noise_only,rms_v3f2,pixel_knn_mean,complete,0.40939316153526306,0.3421304225921631,0.06726273894309998,identical DDIM-50 initialization,,,,,
+pair,42,1,low_noise_only,rms_v3f2,pixel_knn_mean,complete,0.40190598368644714,0.3343852162361145,0.06752076745033264,identical DDIM-50 initialization,,,,,
+pair,42,2,low_noise_only,rms_v3f2,pixel_knn_mean,complete,0.4125433564186096,0.3457513153553009,0.06679204106330872,identical DDIM-50 initialization,,,,,
+mean,42,,low_noise_only,rms_v3f2,pixel_knn_mean,complete,,,0.06719184915224712,,3,3,0.0069,-0.0017446752230792393,ratio of paired means
+pair,42,0,low_noise_only,rms_v3f2,feature_knn_mean,complete,9.528938293457031,7.867549896240234,1.6613883972167969,identical DDIM-50 initialization,,,,,
+pair,42,1,low_noise_only,rms_v3f2,feature_knn_mean,complete,9.300182342529297,7.427974224090576,1.8722081184387207,identical DDIM-50 initialization,,,,,
+pair,42,2,low_noise_only,rms_v3f2,feature_knn_mean,complete,9.743331909179688,7.829897880554199,1.9134340286254883,identical DDIM-50 initialization,,,,,
+mean,42,,low_noise_only,rms_v3f2,feature_knn_mean,complete,,,1.8156768480936687,,3,3,0.196,-0.0031390546041472653,ratio of paired means
+pair,42,0,low_noise_only,rms_v3f2,pixel_support_percentile,complete,23.78387451171875,45.571136474609375,-21.787261962890625,identical DDIM-50 initialization,,,,,
+pair,42,1,low_noise_only,rms_v3f2,pixel_support_percentile,complete,24.732208251953125,48.785400390625,-24.053192138671875,identical DDIM-50 initialization,,,,,
+pair,42,2,low_noise_only,rms_v3f2,pixel_support_percentile,complete,22.04132080078125,43.817901611328125,-21.776580810546875,identical DDIM-50 initialization,,,,,
+mean,42,,low_noise_only,rms_v3f2,pixel_support_percentile,complete,,,-22.539011637369793,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,low_noise_only,rms_v3f2,feature_support_percentile,complete,22.409820556640625,41.522979736328125,-19.1131591796875,identical DDIM-50 initialization,,,,,
+pair,42,1,low_noise_only,rms_v3f2,feature_support_percentile,complete,22.867584228515625,45.052337646484375,-22.18475341796875,identical DDIM-50 initialization,,,,,
+pair,42,2,low_noise_only,rms_v3f2,feature_support_percentile,complete,20.880126953125,40.67840576171875,-19.79827880859375,identical DDIM-50 initialization,,,,,
+mean,42,,low_noise_only,rms_v3f2,feature_support_percentile,complete,,,-20.365397135416668,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,low_noise_only,rms_v3f2,class_coverage,complete,10,10,0,identical DDIM-50 initialization,,,,,
+pair,42,1,low_noise_only,rms_v3f2,class_coverage,complete,10,10,0,identical DDIM-50 initialization,,,,,
+pair,42,2,low_noise_only,rms_v3f2,class_coverage,complete,10,10,0,identical DDIM-50 initialization,,,,,
+mean,42,,low_noise_only,rms_v3f2,class_coverage,complete,,,0.0,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,low_noise_only,rms_v3f2,class_entropy,complete,2.239976644515991,2.2677395343780518,-0.027762889862060547,identical DDIM-50 initialization,,,,,
+pair,42,1,low_noise_only,rms_v3f2,class_entropy,complete,2.2149572372436523,2.233229637145996,-0.01827239990234375,identical DDIM-50 initialization,,,,,
+pair,42,2,low_noise_only,rms_v3f2,class_entropy,complete,2.2670671939849854,2.2719216346740723,-0.004854440689086914,identical DDIM-50 initialization,,,,,
+mean,42,,low_noise_only,rms_v3f2,class_entropy,complete,,,-0.01696324348449707,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,ddim_pool_representatives,rms_v3f2,pixel_knn_mean,complete,0.44304245710372925,0.3421304225921631,0.10091203451156616,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,1,ddim_pool_representatives,rms_v3f2,pixel_knn_mean,complete,0.4330645799636841,0.3343852162361145,0.09867936372756958,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,2,ddim_pool_representatives,rms_v3f2,pixel_knn_mean,complete,0.4376208484172821,0.3457513153553009,0.0918695330619812,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+mean,42,,ddim_pool_representatives,rms_v3f2,pixel_knn_mean,complete,,,0.09715364376703899,,3,3,0.0069,-0.44843677544326677,ratio of paired means
+pair,42,0,ddim_pool_representatives,rms_v3f2,feature_knn_mean,complete,10.196786880493164,7.867549896240234,2.3292369842529297,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,1,ddim_pool_representatives,rms_v3f2,feature_knn_mean,complete,10.155303955078125,7.427974224090576,2.727329730987549,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,2,ddim_pool_representatives,rms_v3f2,feature_knn_mean,complete,10.242851257324219,7.829897880554199,2.4129533767700195,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+mean,42,,ddim_pool_representatives,rms_v3f2,feature_knn_mean,complete,,,2.489840030670166,,3,3,0.196,-0.37560589435526043,ratio of paired means
+pair,42,0,ddim_pool_representatives,rms_v3f2,pixel_support_percentile,complete,15.30609130859375,45.571136474609375,-30.265045166015625,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,1,ddim_pool_representatives,rms_v3f2,pixel_support_percentile,complete,18.707275390625,48.785400390625,-30.078125,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,2,ddim_pool_representatives,rms_v3f2,pixel_support_percentile,complete,17.310333251953125,43.817901611328125,-26.507568359375,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+mean,42,,ddim_pool_representatives,rms_v3f2,pixel_support_percentile,complete,,,-28.950246175130207,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,ddim_pool_representatives,rms_v3f2,feature_support_percentile,complete,17.359161376953125,41.522979736328125,-24.163818359375,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,1,ddim_pool_representatives,rms_v3f2,feature_support_percentile,complete,17.92449951171875,45.052337646484375,-27.127838134765625,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,2,ddim_pool_representatives,rms_v3f2,feature_support_percentile,complete,17.476654052734375,40.67840576171875,-23.201751708984375,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+mean,42,,ddim_pool_representatives,rms_v3f2,feature_support_percentile,complete,,,-24.831136067708332,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,ddim_pool_representatives,rms_v3f2,class_coverage,complete,10,10,0,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,1,ddim_pool_representatives,rms_v3f2,class_coverage,complete,10,10,0,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,2,ddim_pool_representatives,rms_v3f2,class_coverage,complete,10,10,0,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+mean,42,,ddim_pool_representatives,rms_v3f2,class_coverage,complete,,,0.0,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"
+pair,42,0,ddim_pool_representatives,rms_v3f2,class_entropy,complete,2.165501594543457,2.2677395343780518,-0.10223793983459473,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,1,ddim_pool_representatives,rms_v3f2,class_entropy,complete,2.2083404064178467,2.233229637145996,-0.024889230728149414,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+pair,42,2,ddim_pool_representatives,rms_v3f2,class_entropy,complete,2.1097660064697266,2.2719216346740723,-0.1621556282043457,"same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",,,,,
+mean,42,,ddim_pool_representatives,rms_v3f2,class_entropy,complete,,,-0.09642759958902995,,3,3,,,"undefined, unstable, incomplete, or not a primary distance"

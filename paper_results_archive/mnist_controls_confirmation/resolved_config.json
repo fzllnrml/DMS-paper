@@ -1,0 +1,104 @@
+{
+  "protocol": "mnist_controls_confirmation_v1",
+  "model_seeds": [
+    43,
+    44
+  ],
+  "search_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "population_size": 128,
+  "pool_size": 268,
+  "batch_size": 128,
+  "methods": [
+    "ddim_105",
+    "low_noise_only",
+    "ddim_pool_representatives"
+  ],
+  "diagnostics": [
+    "stability_v2_rms",
+    "stability_v2_ddim"
+  ],
+  "method_parameters": {
+    "ddim_105": {
+      "steps": 105,
+      "eta": 0,
+      "timesteps": "round(linspace(999,0,105))"
+    },
+    "low_noise_only": {
+      "initialization_steps": 50,
+      "t": 0,
+      "steps": [
+        45,
+        10
+      ],
+      "alpha": [
+        0.03,
+        0.003
+      ],
+      "step_mode": "rms",
+      "projection": "clamp",
+      "merge": false
+    },
+    "ddim_pool_representatives": {
+      "pool_size": 268,
+      "ddim_steps": 50,
+      "count": 128,
+      "distance": "pixel_rms",
+      "first": "global_medoid",
+      "selection": "greedy_facility_location",
+      "tie_break": "lowest_original_index",
+      "neural_nfe": 0
+    },
+    "stability_v2": {
+      "scales": [
+        0.02,
+        0.05
+      ],
+      "directions": 2,
+      "steps": 10,
+      "t": 0,
+      "alpha": 0.003,
+      "step_mode": "rms",
+      "projection": "clamp",
+      "invalid_delta0_le": 0.01,
+      "resample": false,
+      "rho": "RMS(yT-xT)/RMS(y0-x0)",
+      "drift": "RMS(xT-x0)"
+    }
+  },
+  "inference": {
+    "pixel_margin": 0.0069,
+    "feature_margin": 0.196,
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20261013,
+    "family_contrasts": 6,
+    "family_alpha": 0.05
+  },
+  "output_root": "runs/mnist_controls_confirmation",
+  "pilot_root": "runs/mnist_controls",
+  "checkpoints": {
+    "43": "runs/mnist_seed43/checkpoints/best.pt",
+    "44": "runs/mnist_seed44/checkpoints/best.pt"
+  },
+  "device": "mps",
+  "publication_root": "runs/mnist_experiments/publication_main",
+  "publication_suites": {},
+  "evaluation": {
+    "enabled": true,
+    "data_root": "data/mnist",
+    "download": false,
+    "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+    "require_evaluator": true,
+    "knn_k": 5,
+    "train_limit": null,
+    "validation_limit": 1024,
+    "include_test": true,
+    "reference_cache": "runs/mnist_experiments/publication_reference",
+    "unusually_close_quantile": 0.01
+  }
+}

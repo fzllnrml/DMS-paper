@@ -1,0 +1,27 @@
+output_root: runs/mnist_experiments/dimension_prepare
+defaults: {}
+experiments:
+- name: pca_fit
+  config:
+    kind: pca_fit
+    source_checkpoint: runs/mnist/checkpoints/best.pt
+    pca_output: runs/mnist_pca/pca.pt
+    dimensions: &id001
+    - 16
+    - 32
+    - 64
+    - 128
+    - 256
+    - 512
+    - 784
+  grid: {}
+- name: pca_train
+  config:
+    kind: pca_train
+    pca_path: runs/mnist_pca/pca.pt
+    training_output: runs/mnist_pca/d{dimension}_seed{model_seed}
+    model_seed: 42
+    device: mps
+    epochs: 30
+  grid:
+    dimension: *id001

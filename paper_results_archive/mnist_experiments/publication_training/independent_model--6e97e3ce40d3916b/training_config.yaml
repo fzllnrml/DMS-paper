@@ -1,0 +1,24 @@
+seed: 43
+device: mps
+output_dir: runs/mnist_seed43
+data:
+  root: data/mnist
+  download: true
+  validation_size: 5000
+  split_seed: 42
+  train_limit: null
+  validation_limit: null
+model:
+  T: 1000
+  beta_start: 0.0001
+  beta_end: 0.02
+  base_channels: 32
+  time_dim: 128
+training:
+  epochs: 30
+  batch_size: 64
+  lr: 0.0002
+  weight_decay: 0.0
+  grad_clip: 1.0
+  num_workers: 0
+  log_every: 100

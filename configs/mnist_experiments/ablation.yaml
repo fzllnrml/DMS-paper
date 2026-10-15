@@ -1,0 +1,83 @@
+output_root: runs/mnist_experiments/ablation
+defaults:
+  device: mps
+  evaluation:
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    require_evaluator: true
+experiments:
+- name: merge_timing
+  config:
+    population_size: 64
+    methods:
+    - original
+    - ddim_cluster
+  grid:
+    search.merge.schedule:
+    - every_level
+    - final_only
+    - selected_levels
+    - none
+    search.merge.selected_levels:
+    - - 20
+      - 0
+    search.merge.representative:
+    - mean
+    - medoid
+    search_seed:
+    - 0
+    - 1
+- name: feature_geometry
+  config:
+    population_size: 64
+    methods:
+    - original
+    - ddim_cluster
+    search:
+      merge:
+        radius_schedule: constant
+  grid:
+    search.merge.metric:
+    - feature_l2
+    - feature_cosine
+    search.merge.radius:
+    - 0.05
+    - 0.5
+    search_seed:
+    - 0
+    - 1
+- name: boundary_and_initialization
+  config:
+    population_size: 64
+    methods:
+    - original
+    - ddim
+    - ddim_cluster
+  grid:
+    search.projection:
+    - clamp
+    - none
+    initialization:
+    - ddim
+    - uniform
+    search_seed:
+    - 0
+    - 1
+- name: noise_radius
+  config:
+    population_size: 64
+    methods:
+    - original
+    search:
+      merge:
+        noise_units: pairwise_sigma
+  grid:
+    search.merge.metric:
+    - euclidean
+    - rms_euclidean
+    search.merge.coefficient:
+    - 0.1
+    - 0.5
+    - 1.0
+    search_seed:
+    - 0
+    - 1

@@ -1,0 +1,10 @@
+dimension,errors,id,kind,model_seed,representation,search_seed,status
+,[],shared_pca,representation_fit,,pca,,completed
+2,[],pca_d2_m42,training,42,pca,,completed
+2,[],pca_d2_m42,quality,42,pca,,completed
+4,[],pca_d4_m42,training,42,pca,,completed
+4,[],pca_d4_m42,quality,42,pca,,completed
+784,[],pixel_d784_m42,quality,42,pixel,,completed
+2,[],pca_d2_m42_s0,search,42,pca,0,completed
+4,[],pca_d4_m42_s0,search,42,pca,0,completed
+784,[],pixel_d784_m42_s0,search,42,pixel,0,completed

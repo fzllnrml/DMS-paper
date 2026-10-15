@@ -1,0 +1,30 @@
+{
+  "model_seed": 43,
+  "search_seed": 0,
+  "checkpoint_sha256": "2c96d89482918ff7cecc5a41426646d019d11a39327ea49d0618cea13298cbc8",
+  "evaluator_sha256": "3ae6949a1068d4393f7b9507d2b63daca3d39680d570bc7ec604c9fa1630a538",
+  "publication_definition_hash": "0de12232d9a259c1",
+  "implementation": "810731dee4cc9c35fa2dc1af235945477f68187b117cd875dfb349b0c270312c",
+  "initial_gaussian_prefix_sha256": "a4cdd323a769df17e2ed12bf3ba99e9504c60a28bf2e544187e42ff21a62cc52",
+  "initial_ddim_prefix_sha256": "db2acc7d103ccc858a165dd9c77836a583e987d7a94e750af715034c95916a82",
+  "reference_metadata": {
+    "train_reference_count": 55000,
+    "validation_reference_count": 1024,
+    "test_reference_count": 10000,
+    "train_is_subset": false,
+    "validation_is_subset": true,
+    "k": 5,
+    "pixel_distance_units": "RMS normalized pixels",
+    "feature_distance_units": "L2 frozen features",
+    "test_memorization_audit": true,
+    "test_used_for_tuning": false,
+    "cache_key": "a1f4683a746eff79",
+    "unusually_close_quantile": 0.01
+  },
+  "evaluation_cache_key": "a1f4683a746eff79",
+  "device": "mps",
+  "torch": "2.14.0",
+  "context_signature": "05f836ab681a0aa6",
+  "pairing_type": "same direction RNG; reference and perturbed trajectories use identical ten-step map",
+  "shared_inputs_sha256": "f70766f069b40d6bf152f8b5e12c3b0150b38273e752ce750239f68be763fb76"
+}

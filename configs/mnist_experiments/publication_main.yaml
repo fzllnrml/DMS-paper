@@ -1,0 +1,94 @@
+# Fixed publication protocol v1. No alpha/radius grid.
+output_root: runs/mnist_experiments/publication_main
+defaults:
+  kind: publication_search
+  ddim_steps: 50
+  initialization: ddim
+  batch_size: 128
+  checkpoint: runs/mnist_seed{model_seed}/checkpoints/best.pt
+  population_size: 128
+  model_seed: 42
+  search_seed: 0
+  evaluation:
+    enabled: true
+    require_evaluator: true
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    train_limit: null
+    validation_limit: 1024
+    include_test: true
+    knn_k: 5
+    reference_cache: runs/mnist_experiments/publication_reference
+    unusually_close_quantile: 0.01
+  stability:
+    enabled: true
+    scales:
+    - 0.005
+    - 0.01
+    directions: 2
+    steps: 10
+    alpha: 0.003
+    step_mode: rms
+    projection: clamp
+    t: 0
+    return_radius: 0.01
+  curvature:
+    enabled: false
+  visualization:
+    enabled: true
+    search_seeds:
+    - 0
+    max_images: 16
+    trajectory_particles: 0
+    merge_comparison: false
+  publication_series: publication_main
+  methods:
+  - ddim
+  - ddim_cluster
+  - original_v3f2
+  - rms_v3f2
+  - rms_v3f2_merge
+  - matched_ddim
+  - matched_cluster
+experiments:
+- name: main_model42
+  config:
+    model_seed: 42
+    checkpoint: runs/mnist/checkpoints/best.pt
+  grid:
+    search_seed:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    population_size:
+    - 64
+    - 128
+- name: main_model43
+  config:
+    model_seed: 43
+    checkpoint: runs/mnist_seed43/checkpoints/best.pt
+  grid:
+    search_seed:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    population_size:
+    - 64
+    - 128
+- name: main_model44
+  config:
+    model_seed: 44
+    checkpoint: runs/mnist_seed44/checkpoints/best.pt
+  grid:
+    search_seed:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    population_size:
+    - 64
+    - 128

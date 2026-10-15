@@ -1,0 +1,27 @@
+# Frozen pilot only. No training, tuning, confirmation or publication overwrites.
+protocol: mnist_controls_pilot_v1
+model_seed: 42
+search_seeds: [0, 1, 2]
+population_size: 128
+pool_size: 268
+batch_size: 128
+methods: [ddim_105, low_noise_only, ddim_pool_representatives]
+diagnostics: [stability_v2_rms, stability_v2_ddim]
+output_root: runs/mnist_controls
+checkpoint: runs/mnist/checkpoints/best.pt
+device: auto
+publication_root: runs/mnist_experiments/publication_main
+# Optional explicit seed -> existing publication suite directory mapping.
+publication_suites: {}
+evaluation:
+  enabled: true
+  require_evaluator: true
+  evaluator_checkpoint: runs/mnist_evaluator/best.pt
+  data_root: data/mnist
+  download: false
+  train_limit: null
+  validation_limit: 1024
+  include_test: true
+  knn_k: 5
+  reference_cache: runs/mnist_experiments/publication_reference
+  unusually_close_quantile: 0.01

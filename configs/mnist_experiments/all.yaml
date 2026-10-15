@@ -1,0 +1,12 @@
+include:
+- diagnostic.yaml
+- evaluator.yaml
+- geometry.yaml
+- main.yaml
+- matched_nfe.yaml
+- ablation.yaml
+- dimension_prepare.yaml
+- dimension.yaml
+- model_seeds_prepare.yaml
+- model_seeds.yaml
+- publication.yaml

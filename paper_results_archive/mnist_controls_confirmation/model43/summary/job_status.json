@@ -1,0 +1,317 @@
+[
+  {
+    "model_seed": 43,
+    "search_seed": 0,
+    "method": "inputs",
+    "kind": "dependency",
+    "status": "complete",
+    "error": null
+  },
+  {
+    "model_seed": 43,
+    "search_seed": 1,
+    "method": "inputs",
+    "kind": "dependency",
+    "status": "complete",
+    "error": null
+  },
+  {
+    "model_seed": 43,
+    "search_seed": 2,
+    "method": "inputs",
+    "kind": "dependency",
+    "status": "complete",
+    "error": null
+  },
+  {
+    "model_seed": 43,
+    "search_seed": 3,
+    "method": "inputs",
+    "kind": "dependency",
+    "status": "complete",
+    "error": null
+  },
+  {
+    "model_seed": 43,
+    "search_seed": 4,
+    "method": "inputs",
+    "kind": "dependency",
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed0/ddim_105",
+    "model_seed": 43,
+    "search_seed": 0,
+    "method": "ddim_105",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed0/low_noise_only",
+    "model_seed": 43,
+    "search_seed": 0,
+    "method": "low_noise_only",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed0/ddim_pool_representatives",
+    "model_seed": 43,
+    "search_seed": 0,
+    "method": "ddim_pool_representatives",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed0/stability_v2_rms",
+    "model_seed": 43,
+    "search_seed": 0,
+    "method": "stability_v2_rms",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed0/stability_v2_ddim",
+    "model_seed": 43,
+    "search_seed": 0,
+    "method": "stability_v2_ddim",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed1/ddim_105",
+    "model_seed": 43,
+    "search_seed": 1,
+    "method": "ddim_105",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed1/low_noise_only",
+    "model_seed": 43,
+    "search_seed": 1,
+    "method": "low_noise_only",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed1/ddim_pool_representatives",
+    "model_seed": 43,
+    "search_seed": 1,
+    "method": "ddim_pool_representatives",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed1/stability_v2_rms",
+    "model_seed": 43,
+    "search_seed": 1,
+    "method": "stability_v2_rms",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed1/stability_v2_ddim",
+    "model_seed": 43,
+    "search_seed": 1,
+    "method": "stability_v2_ddim",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed2/ddim_105",
+    "model_seed": 43,
+    "search_seed": 2,
+    "method": "ddim_105",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed2/low_noise_only",
+    "model_seed": 43,
+    "search_seed": 2,
+    "method": "low_noise_only",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed2/ddim_pool_representatives",
+    "model_seed": 43,
+    "search_seed": 2,
+    "method": "ddim_pool_representatives",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed2/stability_v2_rms",
+    "model_seed": 43,
+    "search_seed": 2,
+    "method": "stability_v2_rms",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed2/stability_v2_ddim",
+    "model_seed": 43,
+    "search_seed": 2,
+    "method": "stability_v2_ddim",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed3/ddim_105",
+    "model_seed": 43,
+    "search_seed": 3,
+    "method": "ddim_105",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed3/low_noise_only",
+    "model_seed": 43,
+    "search_seed": 3,
+    "method": "low_noise_only",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed3/ddim_pool_representatives",
+    "model_seed": 43,
+    "search_seed": 3,
+    "method": "ddim_pool_representatives",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed3/stability_v2_rms",
+    "model_seed": 43,
+    "search_seed": 3,
+    "method": "stability_v2_rms",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed3/stability_v2_ddim",
+    "model_seed": 43,
+    "search_seed": 3,
+    "method": "stability_v2_ddim",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed4/ddim_105",
+    "model_seed": 43,
+    "search_seed": 4,
+    "method": "ddim_105",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed4/low_noise_only",
+    "model_seed": 43,
+    "search_seed": 4,
+    "method": "low_noise_only",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13440,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed4/ddim_pool_representatives",
+    "model_seed": 43,
+    "search_seed": 4,
+    "method": "ddim_pool_representatives",
+    "kind": "quality",
+    "output_count": 128,
+    "expected_nfe": 13400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed4/stability_v2_rms",
+    "model_seed": 43,
+    "search_seed": 4,
+    "method": "stability_v2_rms",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  },
+  {
+    "id": "model43_seed4/stability_v2_ddim",
+    "model_seed": 43,
+    "search_seed": 4,
+    "method": "stability_v2_ddim",
+    "kind": "diagnostic",
+    "output_count": 128,
+    "expected_nfe": 6400,
+    "status": "complete",
+    "error": null
+  }
+]

@@ -1,0 +1,231 @@
+{
+  "config": {
+    "protocol": "mnist_dimension_v1",
+    "root": "runs/mnist_dimension_smoke",
+    "source_checkpoint": "runs/mnist/checkpoints/best.pt",
+    "recipe_checkpoint": "runs/mnist/checkpoints/latest.pt",
+    "data_root": "data/mnist",
+    "download": false,
+    "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+    "device": "mps",
+    "dimensions": [
+      2,
+      4
+    ],
+    "replicated_dimensions": [],
+    "model_seeds": [
+      42
+    ],
+    "pixel_model_seeds": [
+      42
+    ],
+    "pixel_checkpoints": {
+      "42": "runs/mnist/checkpoints/best.pt",
+      "43": "runs/mnist_seed43/checkpoints/best.pt",
+      "44": "runs/mnist_seed44/checkpoints/best.pt"
+    },
+    "search_seeds": [
+      0
+    ],
+    "population_size": 2,
+    "ddim_steps": 50,
+    "hidden": [
+      8,
+      8
+    ],
+    "batch_size": 128,
+    "knn_k": 5,
+    "reference_validation_count": 1024,
+    "quality_validation_count": 4,
+    "quality_timesteps": [
+      0,
+      20,
+      100,
+      300,
+      500,
+      800,
+      999
+    ],
+    "sanity_count": 2,
+    "sanity_seed": 1729,
+    "visual_search_seeds": [
+      0
+    ],
+    "max_visual_images": 16,
+    "smoke": true,
+    "train_limit": 16,
+    "validation_limit": 8,
+    "epochs_override": 1
+  },
+  "job": {
+    "id": "pca_d4_m42_s0",
+    "representation": "pca",
+    "dimension": 4,
+    "model_seed": 42,
+    "checkpoint": "runs/mnist_dimension_smoke/models/pca_d4_m42/best.pt",
+    "search_seed": 0,
+    "initial_noise_seed": 0,
+    "output": "runs/mnist_dimension_smoke/search/pca_d4_m42_s0",
+    "nfe_upper_bound": 720,
+    "per_method_nfe_upper": {
+      "ddim": 100,
+      "original_v3f2": 210,
+      "rms_v3f2": 210,
+      "matched_ddim": 200
+    }
+  },
+  "method_definitions": {
+    "ddim": {
+      "schedule": {
+        "kind": "explicit",
+        "timesteps": [
+          800,
+          500,
+          300,
+          200,
+          100,
+          50,
+          20,
+          5,
+          0
+        ]
+      },
+      "step_mode": "rms",
+      "alpha": 0.03,
+      "steps_per_level": 0,
+      "final_steps": 0,
+      "final_t": 0,
+      "final_step_scale": 0.1,
+      "projection": "none",
+      "tolerance": 1e-06,
+      "save_trajectory": false,
+      "merge": {
+        "metric": "rms_euclidean",
+        "schedule": "none",
+        "selected_levels": [],
+        "representative": "medoid",
+        "radius_schedule": "constant",
+        "radius": 0.65,
+        "coefficient": 0.8,
+        "min_radius": 0.05,
+        "noise_units": "legacy_sigma",
+        "legacy_t0_sigma": 0.01,
+        "max_particles": 4096
+      }
+    },
+    "original_v3f2": {
+      "schedule": {
+        "kind": "explicit",
+        "timesteps": [
+          800,
+          500,
+          300,
+          200,
+          100,
+          50,
+          20,
+          5,
+          0
+        ]
+      },
+      "step_mode": "l2",
+      "alpha": 0.03,
+      "steps_per_level": 5,
+      "final_steps": 10,
+      "final_t": 0,
+      "final_step_scale": 0.1,
+      "projection": "none",
+      "tolerance": 1e-06,
+      "save_trajectory": false,
+      "merge": {
+        "metric": "rms_euclidean",
+        "schedule": "none",
+        "selected_levels": [],
+        "representative": "medoid",
+        "radius_schedule": "constant",
+        "radius": 0.65,
+        "coefficient": 0.8,
+        "min_radius": 0.05,
+        "noise_units": "legacy_sigma",
+        "legacy_t0_sigma": 0.01,
+        "max_particles": 4096
+      }
+    },
+    "rms_v3f2": {
+      "schedule": {
+        "kind": "explicit",
+        "timesteps": [
+          800,
+          500,
+          300,
+          200,
+          100,
+          50,
+          20,
+          5,
+          0
+        ]
+      },
+      "step_mode": "rms",
+      "alpha": 0.03,
+      "steps_per_level": 5,
+      "final_steps": 10,
+      "final_t": 0,
+      "final_step_scale": 0.1,
+      "projection": "none",
+      "tolerance": 1e-06,
+      "save_trajectory": false,
+      "merge": {
+        "metric": "rms_euclidean",
+        "schedule": "none",
+        "selected_levels": [],
+        "representative": "medoid",
+        "radius_schedule": "constant",
+        "radius": 0.65,
+        "coefficient": 0.8,
+        "min_radius": 0.05,
+        "noise_units": "legacy_sigma",
+        "legacy_t0_sigma": 0.01,
+        "max_particles": 4096
+      }
+    },
+    "matched_ddim": {
+      "schedule": {
+        "kind": "explicit",
+        "timesteps": [
+          800,
+          500,
+          300,
+          200,
+          100,
+          50,
+          20,
+          5,
+          0
+        ]
+      },
+      "step_mode": "rms",
+      "alpha": 0.03,
+      "steps_per_level": 0,
+      "final_steps": 0,
+      "final_t": 0,
+      "final_step_scale": 0.1,
+      "projection": "none",
+      "tolerance": 1e-06,
+      "save_trajectory": false,
+      "merge": {
+        "metric": "rms_euclidean",
+        "schedule": "none",
+        "selected_levels": [],
+        "representative": "medoid",
+        "radius_schedule": "constant",
+        "radius": 0.65,
+        "coefficient": 0.8,
+        "min_radius": 0.05,
+        "noise_units": "legacy_sigma",
+        "legacy_t0_sigma": 0.01,
+        "max_particles": 4096
+      }
+    }
+  }
+}

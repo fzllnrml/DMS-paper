@@ -1,0 +1,28 @@
+# Separate from synthetic/Levine configuration. Run from repository root.
+seed: 42
+device: auto
+output_dir: runs/mnist
+
+data:
+  root: data/mnist
+  download: true
+  validation_size: 5000  # 55,000 train / 5,000 validation / official 10,000 test
+  split_seed: 42
+  train_limit: null
+  validation_limit: null
+
+model:
+  T: 1000
+  beta_start: 0.0001
+  beta_end: 0.02
+  base_channels: 32
+  time_dim: 128
+
+training:
+  epochs: 30
+  batch_size: 64
+  lr: 0.0002
+  weight_decay: 0.0
+  grad_clip: 1.0
+  num_workers: 0  # Safe default for macOS spawn; MNIST stays in CPU memory.
+  log_every: 100

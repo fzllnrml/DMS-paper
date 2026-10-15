@@ -1,0 +1,93 @@
+{
+  "config": {
+    "protocol": "mnist_dimension_v1",
+    "root": "runs/mnist_dimension_smoke",
+    "source_checkpoint": "runs/mnist/checkpoints/best.pt",
+    "recipe_checkpoint": "runs/mnist/checkpoints/latest.pt",
+    "data_root": "data/mnist",
+    "download": false,
+    "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+    "device": "mps",
+    "dimensions": [
+      2,
+      4
+    ],
+    "replicated_dimensions": [],
+    "model_seeds": [
+      42
+    ],
+    "pixel_model_seeds": [
+      42
+    ],
+    "pixel_checkpoints": {
+      "42": "runs/mnist/checkpoints/best.pt",
+      "43": "runs/mnist_seed43/checkpoints/best.pt",
+      "44": "runs/mnist_seed44/checkpoints/best.pt"
+    },
+    "search_seeds": [
+      0
+    ],
+    "population_size": 2,
+    "ddim_steps": 50,
+    "hidden": [
+      8,
+      8
+    ],
+    "batch_size": 128,
+    "knn_k": 5,
+    "reference_validation_count": 1024,
+    "quality_validation_count": 4,
+    "quality_timesteps": [
+      0,
+      20,
+      100,
+      300,
+      500,
+      800,
+      999
+    ],
+    "sanity_count": 2,
+    "sanity_seed": 1729,
+    "visual_search_seeds": [
+      0
+    ],
+    "max_visual_images": 16,
+    "smoke": true,
+    "train_limit": 16,
+    "validation_limit": 8,
+    "epochs_override": 1
+  },
+  "model": {
+    "id": "pca_d2_m42",
+    "representation": "pca",
+    "dimension": 2,
+    "model_seed": 42,
+    "checkpoint": "runs/mnist_dimension_smoke/models/pca_d2_m42/best.pt"
+  },
+  "training": {
+    "epochs": 1,
+    "batch_size": 64,
+    "lr": 0.0002,
+    "weight_decay": 0.0,
+    "grad_clip": 1.0,
+    "num_workers": 0,
+    "log_every": 100
+  },
+  "model_config": {
+    "dim": 2,
+    "T": 1000,
+    "beta_start": 0.0001,
+    "beta_end": 0.02,
+    "hidden": [
+      8,
+      8
+    ]
+  },
+  "parameter_count": 122,
+  "objective": "epsilon MSE averaged per coordinate",
+  "validation_noise_seed": 314159,
+  "optimizer": "AdamW",
+  "checkpoint_selection": "minimum full validation epsilon MSE",
+  "source_recipe_sha256": "502db97b4934e3e1475b864927eb8fd34d37d4744f5fa43faadcbbc8d2534faf",
+  "representation_sha256": "7964fadf03daaba90d25778cdb03fc4535c29f5b46200151c9badf5916f98bce"
+}

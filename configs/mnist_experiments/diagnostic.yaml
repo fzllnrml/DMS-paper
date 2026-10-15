@@ -1,0 +1,31 @@
+output_root: runs/mnist_experiments/diagnostic
+defaults: {}
+experiments:
+- name: diagnostic
+  config:
+    device: mps
+    population_size: 8
+    ddim_steps: 20
+    methods:
+    - original
+    - ddim
+    - ddim_cluster
+    - final_refine
+    search:
+      schedule:
+        kind: explicit
+        timesteps:
+        - 50
+        - 15
+        - 0
+      steps_per_level: 2
+      final_steps: 2
+    evaluation:
+      train_limit: 1024
+      validation_limit: 64
+    curvature:
+      enabled: true
+      directions: 2
+    visualization:
+      merge_comparison: true
+  grid: {}

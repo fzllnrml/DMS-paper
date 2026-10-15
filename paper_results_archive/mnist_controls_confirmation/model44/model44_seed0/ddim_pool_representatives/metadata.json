@@ -1,0 +1,30 @@
+{
+  "model_seed": 44,
+  "search_seed": 0,
+  "checkpoint_sha256": "6e772a81d4f2a0133c4ed86c30b93d1451b66d09c5cb917d068b872d2dd905a5",
+  "evaluator_sha256": "3ae6949a1068d4393f7b9507d2b63daca3d39680d570bc7ec604c9fa1630a538",
+  "publication_definition_hash": "0de12232d9a259c1",
+  "implementation": "810731dee4cc9c35fa2dc1af235945477f68187b117cd875dfb349b0c270312c",
+  "initial_gaussian_prefix_sha256": "a4cdd323a769df17e2ed12bf3ba99e9504c60a28bf2e544187e42ff21a62cc52",
+  "initial_ddim_prefix_sha256": "7e5ad02c1988189ca7066814120ca186a1104d8e03b63e8e593af5bbb0da4679",
+  "reference_metadata": {
+    "train_reference_count": 55000,
+    "validation_reference_count": 1024,
+    "test_reference_count": 10000,
+    "train_is_subset": false,
+    "validation_is_subset": true,
+    "k": 5,
+    "pixel_distance_units": "RMS normalized pixels",
+    "feature_distance_units": "L2 frozen features",
+    "test_memorization_audit": true,
+    "test_used_for_tuning": false,
+    "cache_key": "a1f4683a746eff79",
+    "unusually_close_quantile": 0.01
+  },
+  "evaluation_cache_key": "a1f4683a746eff79",
+  "device": "mps",
+  "torch": "2.14.0",
+  "context_signature": "3d05f90bef413604",
+  "pairing_type": "same 268-sample generated pool; set-level comparison, no pointwise pairing to 128 search outputs",
+  "shared_inputs_sha256": "2399187028abc7b674660f10ad571f56a6d9080598f73b07ec809cd6af24ee35"
+}

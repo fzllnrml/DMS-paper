@@ -1,0 +1,4 @@
+{
+  "completed_artifacts_executed_nfe": 166400,
+  "note": "Excludes uncheckpointed work in failed/interrupted attempts; per-job status/runtime records identify failures"
+}

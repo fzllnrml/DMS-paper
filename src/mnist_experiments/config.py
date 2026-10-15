@@ -1,0 +1,13 @@
+DEFAULT={
+ 'kind':'search','checkpoint':'runs/mnist/checkpoints/best.pt','model_seed':42,'search_seed':0,'initial_noise_seed':None,
+ 'device':'auto','batch_size':128,'population_size':150,'ddim_steps':50,'initialization':'ddim',
+ 'methods':['original','ddim','ddim_cluster','final_refine','no_intermediate_merge','low_noise_only','matched_ddim','matched_cluster'],
+ 'search':{'schedule':{'kind':'explicit','timesteps':[800,500,300,200,100,50,20,5,0]},'step_mode':'l2','alpha':.01,
+  'steps_per_level':20,'final_steps':100,'final_t':0,'final_step_scale':.1,'projection':'clamp','tolerance':1e-6,'save_trajectory':True,
+  'merge':{'metric':'euclidean','schedule':'every_level','selected_levels':[],'representative':'mean','radius_schedule':'noise_scaled',
+   'radius':.5,'coefficient':.8,'min_radius':.05,'noise_units':'legacy_sigma','legacy_t0_sigma':.01,'max_particles':4096}},
+ 'evaluation':{'enabled':True,'data_root':'data/mnist','download':False,'evaluator_checkpoint':None,'require_evaluator':False,
+  'knn_k':5,'train_limit':None,'validation_limit':256,'include_test':False},
+ 'stability':{'enabled':False,'scales':[.005,.01],'directions':4,'steps':20,'alpha':.001,'step_mode':'l2','projection':'clamp','t':0,'return_radius':.01},
+ 'curvature':{'enabled':False,'directions':8,'epsilon':.01,'t':0},
+ 'visualization':{'enabled':True,'max_images':64,'trajectory_particles':4,'merge_comparison':False},'max_matched_samples':10000}

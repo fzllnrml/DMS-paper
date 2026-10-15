@@ -1,0 +1,7 @@
+# Install torch and torchvision together so pip resolves a matching pair.
+# Separate environment: existing synthetic/Levine pins remain untouched.
+torch>=2.6,<3
+torchvision>=0.21,<1
+numpy>=1.26,<3
+PyYAML>=6,<7
+Pillow>=10,<13

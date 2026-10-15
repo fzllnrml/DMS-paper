@@ -1,0 +1,4 @@
+{
+  "completed_artifacts_executed_nfe": 332800,
+  "note": "Completed artifacts only; failed/interrupted work is not silently counted as zero-cost success."
+}

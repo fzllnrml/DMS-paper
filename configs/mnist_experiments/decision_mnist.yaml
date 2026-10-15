@@ -1,0 +1,113 @@
+output_root: runs/mnist_experiments/decision_mnist
+
+defaults:
+  device: mps
+  batch_size: 128
+  evaluation:
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    require_evaluator: true
+    knn_k: 5
+    train_limit: null
+    validation_limit: 256
+    include_test: false
+
+experiments:
+
+# ------------------------------------------------------------
+# 1. Главный тест:
+#    одинаковая начальная population,
+#    RMS-v3f2 против обычного DDIM и matched-NFE DDIM.
+#    Merge отключён, чтобы проверить именно полезность movement.
+# ------------------------------------------------------------
+
+- name: movement_matched_nfe
+  config:
+    ddim_steps: 50
+    methods:
+      - original
+      - ddim
+      - matched_ddim
+
+    search:
+      schedule:
+        kind: explicit
+        timesteps: [800, 500, 300, 200, 100, 50, 20, 5, 0]
+
+      step_mode: rms
+      steps_per_level: 5
+      final_steps: 10
+      final_t: 0
+      final_step_scale: 0.1
+      projection: clamp
+
+      merge:
+        schedule: none
+
+  grid:
+    population_size:
+      - 64
+      - 128
+
+    search.alpha:
+      - 0.02
+      - 0.03
+
+    search_seed:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+
+
+# ------------------------------------------------------------
+# 2. Полноценный population reduction:
+#    RMS-v3f2 + final-only medoid merge
+#    против кластеризации DDIM и matched-NFE DDIM.
+# ------------------------------------------------------------
+
+- name: merged_matched_nfe
+  config:
+    ddim_steps: 50
+    methods:
+      - original
+      - ddim_cluster
+      - matched_cluster
+
+    search:
+      schedule:
+        kind: explicit
+        timesteps: [800, 500, 300, 200, 100, 50, 20, 5, 0]
+
+      step_mode: rms
+      steps_per_level: 5
+      final_steps: 10
+      final_t: 0
+      final_step_scale: 0.1
+      projection: clamp
+
+      merge:
+        metric: rms_euclidean
+        schedule: final_only
+        representative: medoid
+        radius_schedule: constant
+
+  grid:
+    population_size:
+      - 64
+      - 128
+
+    search.alpha:
+      - 0.02
+      - 0.03
+
+    search.merge.radius:
+      - 0.55
+      - 0.65
+
+    search_seed:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4

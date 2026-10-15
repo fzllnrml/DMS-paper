@@ -1,0 +1,94 @@
+kind: publication_search
+checkpoint: runs/mnist/checkpoints/best.pt
+model_seed: 42
+search_seed: 2
+initial_noise_seed: 2
+device: mps
+batch_size: 128
+population_size: 128
+ddim_steps: 50
+initialization: ddim
+methods:
+- ddim
+- ddim_cluster
+- original_v3f2
+- rms_v3f2
+- rms_v3f2_merge
+- matched_ddim
+- matched_cluster
+search:
+  schedule:
+    kind: explicit
+    timesteps:
+    - 800
+    - 500
+    - 300
+    - 200
+    - 100
+    - 50
+    - 20
+    - 5
+    - 0
+  step_mode: rms
+  alpha: 0.03
+  steps_per_level: 5
+  final_steps: 10
+  final_t: 0
+  final_step_scale: 0.1
+  projection: clamp
+  tolerance: 1.0e-06
+  save_trajectory: false
+  merge:
+    metric: rms_euclidean
+    schedule: final_only
+    selected_levels: []
+    representative: medoid
+    radius_schedule: constant
+    radius: 0.65
+    coefficient: 0.8
+    min_radius: 0.05
+    noise_units: legacy_sigma
+    legacy_t0_sigma: 0.01
+    max_particles: 4096
+evaluation:
+  enabled: true
+  data_root: data/mnist
+  download: false
+  evaluator_checkpoint: runs/mnist_evaluator/best.pt
+  require_evaluator: true
+  knn_k: 5
+  train_limit: null
+  validation_limit: 1024
+  include_test: true
+  reference_cache: runs/mnist_experiments/publication_reference
+  unusually_close_quantile: 0.01
+stability:
+  enabled: true
+  scales:
+  - 0.005
+  - 0.01
+  directions: 2
+  steps: 10
+  alpha: 0.003
+  step_mode: rms
+  projection: clamp
+  t: 0
+  return_radius: 0.01
+curvature:
+  enabled: false
+  directions: 8
+  epsilon: 0.01
+  t: 0
+visualization:
+  enabled: true
+  max_images: 16
+  trajectory_particles: 0
+  merge_comparison: false
+  search_seeds:
+  - 0
+max_matched_samples: 10000
+publication_series: publication_main
+protocol: mnist_rms_publication_v1
+definition_hash: 0de12232d9a259c1
+variant: main_model42
+suite_id: main_model42--7e10f0640e1fc673

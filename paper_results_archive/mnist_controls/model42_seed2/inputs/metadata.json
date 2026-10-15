@@ -1,0 +1,28 @@
+{
+  "model_seed": 42,
+  "search_seed": 2,
+  "checkpoint_sha256": "bace789b0c9e848bb68c690eda66ccd5d8530996457344aed59cb8bd76382fd5",
+  "evaluator_sha256": "3ae6949a1068d4393f7b9507d2b63daca3d39680d570bc7ec604c9fa1630a538",
+  "publication_definition_hash": "0de12232d9a259c1",
+  "implementation": "a08577db89e73cab36f38ced63cc1e206f64f6481cae7d70f0b72be64656562c",
+  "initial_gaussian_prefix_sha256": "c9efae00254f4e00781925808d85f14b2f46c0d15f24a98dc256863d6da55e8e",
+  "initial_ddim_prefix_sha256": "4df77ed101607de38588ab893f898f8d91c773afe6c1c04d7b4626721fdfbfb6",
+  "reference_metadata": {
+    "train_reference_count": 55000,
+    "validation_reference_count": 1024,
+    "test_reference_count": 10000,
+    "train_is_subset": false,
+    "validation_is_subset": true,
+    "k": 5,
+    "pixel_distance_units": "RMS normalized pixels",
+    "feature_distance_units": "L2 frozen features",
+    "test_memorization_audit": true,
+    "test_used_for_tuning": false,
+    "cache_key": "a1f4683a746eff79",
+    "unusually_close_quantile": 0.01
+  },
+  "evaluation_cache_key": "a1f4683a746eff79",
+  "device": "mps",
+  "torch": "2.14.0",
+  "context_signature": "d7da8798604f4f73"
+}

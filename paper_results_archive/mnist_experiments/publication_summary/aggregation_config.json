@@ -1,0 +1,44 @@
+{
+  "roots": [
+    "runs/mnist_experiments/publication_main"
+  ],
+  "bootstrap_repeats": 2000,
+  "bootstrap_seed": 123,
+  "timestamp": "2026-09-11T16:30:38.795474+00:00",
+  "n_method_runs": 210,
+  "n_suites": 30,
+  "contrasts": [
+    [
+      "rms_v3f2",
+      "ddim"
+    ],
+    [
+      "rms_v3f2",
+      "matched_ddim"
+    ],
+    [
+      "rms_v3f2_merge",
+      "ddim_cluster"
+    ],
+    [
+      "rms_v3f2_merge",
+      "matched_cluster"
+    ],
+    [
+      "rms_v3f2",
+      "original_v3f2"
+    ],
+    [
+      "rms_v3f2_merge",
+      "rms_v3f2"
+    ],
+    [
+      "rms_v3f2_merge",
+      "rms_v3f2_mean"
+    ],
+    [
+      "rms_v3f2_merge",
+      "rms_v3f2_every_level"
+    ]
+  ]
+}

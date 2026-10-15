@@ -1,0 +1,54 @@
+output_root: runs/mnist_experiments/geometry
+defaults:
+  device: mps
+  evaluation:
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    require_evaluator: true
+experiments:
+- name: pixel_geometry
+  config:
+    population_size: 32
+    methods:
+    - original
+    - ddim_cluster
+    search:
+      steps_per_level: 5
+      final_steps: 10
+      merge:
+        radius_schedule: constant
+  grid:
+    search.step_mode:
+    - l2
+    - rms
+    - raw
+    search.alpha:
+    - 0.001
+    - 0.01
+    search.merge.metric:
+    - euclidean
+    - rms_euclidean
+    - cosine
+    search.merge.radius:
+    - 0.05
+    - 0.5
+- name: noise_levels
+  config:
+    population_size: 32
+    methods:
+    - original
+    search:
+      steps_per_level: 5
+      final_steps: 10
+  grid:
+    search.schedule:
+    - kind: explicit
+      timesteps:
+      - 0
+    - kind: sigma
+      min: 0.02
+      max: 0.3
+      count: 5
+    - kind: log_snr
+      min: -4.0
+      max: 8.0
+      count: 5

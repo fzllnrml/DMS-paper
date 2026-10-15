@@ -1,0 +1,50 @@
+{
+  "model_seed": 44,
+  "search_seed": 0,
+  "checkpoint_sha256": "6e772a81d4f2a0133c4ed86c30b93d1451b66d09c5cb917d068b872d2dd905a5",
+  "evaluator_sha256": "3ae6949a1068d4393f7b9507d2b63daca3d39680d570bc7ec604c9fa1630a538",
+  "publication_definition_hash": "0de12232d9a259c1",
+  "implementation": "810731dee4cc9c35fa2dc1af235945477f68187b117cd875dfb349b0c270312c",
+  "initial_gaussian_prefix_sha256": "a4cdd323a769df17e2ed12bf3ba99e9504c60a28bf2e544187e42ff21a62cc52",
+  "initial_ddim_prefix_sha256": "7e5ad02c1988189ca7066814120ca186a1104d8e03b63e8e593af5bbb0da4679",
+  "evaluation_cache_key": "a1f4683a746eff79",
+  "device": "mps",
+  "torch": "2.14.0",
+  "context_signature": "3d05f90bef413604",
+  "stability_summary": [
+    {
+      "scale": 0.02,
+      "valid_fraction": 1.0,
+      "median_rho": 0.5508686304092407,
+      "mean_rho": 0.5525243106530979,
+      "fraction_rho_lt_1": 1.0,
+      "fraction_rho_le_09": 1.0,
+      "median_reference_drift": 0.014838599599897861,
+      "valid_count": 256,
+      "total_directions": 256
+    },
+    {
+      "scale": 0.05,
+      "valid_fraction": 1.0,
+      "median_rho": 0.6787657141685486,
+      "mean_rho": 0.6790821659378707,
+      "fraction_rho_lt_1": 1.0,
+      "fraction_rho_le_09": 1.0,
+      "median_reference_drift": 0.014838599599897861,
+      "valid_count": 256,
+      "total_directions": 256
+    }
+  ],
+  "method": "stability_v2_ddim",
+  "output_count": 128,
+  "kind": "diagnostic",
+  "nfe": 6400,
+  "newly_executed_nfe": 6400,
+  "reused_nfe": 0,
+  "diagnostic_nfe": 6400,
+  "forward_calls": 50,
+  "generation_wall_seconds": 5.8286910410097335,
+  "pairing_type": "same direction RNG; reference and perturbed trajectories use identical ten-step map",
+  "process_peak_rss_bytes": 717881344,
+  "job_wall_seconds": 5.832498125004349
+}

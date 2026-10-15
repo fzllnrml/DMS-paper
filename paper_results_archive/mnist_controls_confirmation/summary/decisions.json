@@ -1,0 +1,97 @@
+{
+  "status": "complete",
+  "controls": {
+    "ddim_105": {
+      "status": "complete",
+      "diversity": [
+        {
+          "model_seed": 43,
+          "search_guardrail": false,
+          "control_guardrail": false,
+          "control_excess_diversity_loss": false
+        },
+        {
+          "model_seed": 44,
+          "search_guardrail": false,
+          "control_guardrail": false,
+          "control_excess_diversity_loss": false
+        }
+      ],
+      "search_confirmed": true,
+      "practical_equivalence": false,
+      "control_noninferior": false,
+      "control_confirmed": false
+    },
+    "low_noise_only": {
+      "status": "complete",
+      "diversity": [
+        {
+          "model_seed": 43,
+          "search_guardrail": false,
+          "control_guardrail": false,
+          "control_excess_diversity_loss": false
+        },
+        {
+          "model_seed": 44,
+          "search_guardrail": false,
+          "control_guardrail": false,
+          "control_excess_diversity_loss": false
+        }
+      ],
+      "search_confirmed": true,
+      "practical_equivalence": false,
+      "control_noninferior": false,
+      "control_confirmed": false
+    },
+    "ddim_pool_representatives": {
+      "status": "complete",
+      "diversity": [
+        {
+          "model_seed": 43,
+          "search_guardrail": false,
+          "control_guardrail": false,
+          "control_excess_diversity_loss": false
+        },
+        {
+          "model_seed": 44,
+          "search_guardrail": false,
+          "control_guardrail": false,
+          "control_excess_diversity_loss": false
+        }
+      ],
+      "search_confirmed": true,
+      "practical_equivalence": false,
+      "control_noninferior": false,
+      "control_confirmed": false
+    }
+  },
+  "inference": {
+    "pixel_margin": 0.0069,
+    "feature_margin": 0.196,
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20261013,
+    "family_contrasts": 6,
+    "family_alpha": 0.05
+  },
+  "interpretation": "Confirmation only; fixed models, run-level paired inference. Pilot excluded from confidence intervals. Projected-map contraction is not proof of a mode.",
+  "next_action": "Stop experimental series after this confirmation; no automatic further runs.",
+  "stability_v2": [
+    {
+      "model_seed": 43,
+      "status": "complete",
+      "passing_runs_both_scales": 5,
+      "small_drift_runs": 5,
+      "all_runs_valid": true,
+      "positive": true
+    },
+    {
+      "model_seed": 44,
+      "status": "complete",
+      "passing_runs_both_scales": 5,
+      "small_drift_runs": 5,
+      "all_runs_valid": true,
+      "positive": true
+    }
+  ],
+  "stability_confirmed": true
+}

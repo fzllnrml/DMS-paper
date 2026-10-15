@@ -1,0 +1,12 @@
+output_root: runs/mnist_experiments/evaluator
+defaults: {}
+experiments:
+- name: evaluator_train
+  config:
+    kind: evaluator_train
+    source_checkpoint: runs/mnist/checkpoints/best.pt
+    training_output: runs/mnist_evaluator
+    device: mps
+    seed: 71
+    epochs: 5
+  grid: {}

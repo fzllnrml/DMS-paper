@@ -1,0 +1,45 @@
+{
+  "signature": "1d1793b92510d4f3",
+  "source_checkpoint": "runs/mnist/checkpoints/best.pt",
+  "source_sha256": "bace789b0c9e848bb68c690eda66ccd5d8530996457344aed59cb8bd76382fd5",
+  "model_seed": 43,
+  "resolved_config": {
+    "seed": 43,
+    "device": "mps",
+    "output_dir": "runs/mnist_seed43",
+    "data": {
+      "root": "data/mnist",
+      "download": true,
+      "validation_size": 5000,
+      "split_seed": 42,
+      "train_limit": null,
+      "validation_limit": null
+    },
+    "model": {
+      "T": 1000,
+      "beta_start": 0.0001,
+      "beta_end": 0.02,
+      "base_channels": 32,
+      "time_dim": 128
+    },
+    "training": {
+      "epochs": 30,
+      "batch_size": 64,
+      "lr": 0.0002,
+      "weight_decay": 0.0,
+      "grad_clip": 1.0,
+      "num_workers": 0,
+      "log_every": 100
+    }
+  },
+  "trainer_sha256": "884c80c3130477e7",
+  "source_latest_checkpoint": "runs/mnist/checkpoints/latest.pt",
+  "source_latest_sha256": "502db97b4934e3e1475b864927eb8fd34d37d4744f5fa43faadcbbc8d2534faf",
+  "selection": "Existing trainer: best validation loss, same fixed validation procedure",
+  "git": {
+    "commit": "2535b225b5c577f23197661644df681b1808ff96",
+    "dirty": true
+  },
+  "torch_version": "2.14.0",
+  "created_at": "2026-09-11T12:34:49.980088+00:00"
+}

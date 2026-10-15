@@ -1,0 +1,16 @@
+===== ORIGINAL RUNS SIZE =====
+2,9G	runs
+
+===== ORIGINAL DIRECTORIES =====
+3,4M	runs/mnist_evaluator
+ 28M	runs/mnist
+ 28M	runs/mnist_seed43
+ 28M	runs/mnist_seed44
+ 28M	runs/mnist_smoke
+ 39M	runs/mnist_dimension_smoke
+ 50M	runs/mnist_controls
+179M	runs/mnist_controls_confirmation
+2,5G	runs/mnist_experiments
+
+===== FILE COUNTS =====
+    8405

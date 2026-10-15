@@ -1,0 +1,86 @@
+[
+  {
+    "kind": "representation_fit",
+    "id": "shared_pca",
+    "representation": "pca",
+    "dimension": null,
+    "model_seed": null,
+    "status": "completed",
+    "errors": []
+  },
+  {
+    "kind": "training",
+    "id": "pca_d2_m42",
+    "representation": "pca",
+    "dimension": 2,
+    "model_seed": 42,
+    "status": "completed",
+    "errors": []
+  },
+  {
+    "kind": "quality",
+    "id": "pca_d2_m42",
+    "representation": "pca",
+    "dimension": 2,
+    "model_seed": 42,
+    "status": "completed",
+    "errors": []
+  },
+  {
+    "kind": "training",
+    "id": "pca_d4_m42",
+    "representation": "pca",
+    "dimension": 4,
+    "model_seed": 42,
+    "status": "completed",
+    "errors": []
+  },
+  {
+    "kind": "quality",
+    "id": "pca_d4_m42",
+    "representation": "pca",
+    "dimension": 4,
+    "model_seed": 42,
+    "status": "completed",
+    "errors": []
+  },
+  {
+    "kind": "quality",
+    "id": "pixel_d784_m42",
+    "representation": "pixel",
+    "dimension": 784,
+    "model_seed": 42,
+    "status": "completed",
+    "errors": []
+  },
+  {
+    "kind": "search",
+    "id": "pca_d2_m42_s0",
+    "representation": "pca",
+    "dimension": 2,
+    "model_seed": 42,
+    "search_seed": 0,
+    "status": "completed",
+    "errors": []
+  },
+  {
+    "kind": "search",
+    "id": "pca_d4_m42_s0",
+    "representation": "pca",
+    "dimension": 4,
+    "model_seed": 42,
+    "search_seed": 0,
+    "status": "completed",
+    "errors": []
+  },
+  {
+    "kind": "search",
+    "id": "pixel_d784_m42_s0",
+    "representation": "pixel",
+    "dimension": 784,
+    "model_seed": 42,
+    "search_seed": 0,
+    "status": "completed",
+    "errors": []
+  }
+]

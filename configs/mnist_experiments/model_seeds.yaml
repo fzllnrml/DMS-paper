@@ -1,0 +1,39 @@
+output_root: runs/mnist_experiments/model_seeds
+defaults:
+  device: mps
+  evaluation:
+    evaluator_checkpoint: runs/mnist_evaluator/best.pt
+    require_evaluator: true
+experiments:
+- name: existing_model
+  config:
+    variant: model_seed_comparison
+    checkpoint: runs/mnist/checkpoints/best.pt
+    model_seed: 42
+    methods: &id001
+    - original
+    - ddim
+    - ddim_cluster
+    - final_refine
+    - no_intermediate_merge
+    - low_noise_only
+    - matched_ddim
+    - matched_cluster
+  grid:
+    search_seed:
+    - 0
+    - 1
+    - 2
+- name: independent_models
+  config:
+    variant: model_seed_comparison
+    checkpoint: runs/mnist_seed{model_seed}/checkpoints/best.pt
+    methods: *id001
+  grid:
+    model_seed:
+    - 43
+    - 44
+    search_seed:
+    - 0
+    - 1
+    - 2
