@@ -1,0 +1,46 @@
+# Everything generated belongs here, never in the frozen first series.
+results/
+.venv/
+.venv*/
+.env
+.env.*
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+data/
+datasets/
+checkpoints/
+cache/
+tmp/
+*.log
+*.tmp
+*.pt
+*.pth
+*.npz
+*.npy
+*.zip
+*.tar
+*.gz
+
+# Local environment
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Large experimental data
+results/
+*.npz
+*.npy
+*.pt
+*.pth
+*.ckpt
+
+# Keep compact Pilot v2 summaries
+!pilot_v2_snapshot/*.csv.gz

@@ -1,0 +1,20 @@
+{
+  "format": "dms_v2_analysis",
+  "root": "/Users/ramil/Desktop/DMS-paper/research_experiments_v2/results/pilot",
+  "n_jobs": 4408,
+  "n_rows": 67278,
+  "n_eligible": 58905,
+  "n_contrast_rows": 43800,
+  "n_actual_pairs": 221984,
+  "declared_primary_m": 160,
+  "bootstrap_repeats": 5000,
+  "primary_bootstrap_repeats": 100000,
+  "status": "analyzed",
+  "cohorts": [
+    "b9a330e9b1cb548fee16",
+    "ca7a9059869bfd1c8030"
+  ],
+  "independence": "distribution seeds; MNIST intervals conditional on fixed models; particles are never replicates",
+  "ranking_rules": "complete reference, valid algorithm/NFE/K, verified compatibility; no averaging settings",
+  "missing_and_failed_runs": "retained in run_status/protocols; never silently imputed"
+}

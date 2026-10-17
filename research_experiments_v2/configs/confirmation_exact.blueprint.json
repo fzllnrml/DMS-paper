@@ -1,0 +1,304 @@
+{
+  "version": 2,
+  "description": "Unexecuted confirmation blueprint. --run-confirmation refuses it until a source/input/selection/hypothesis lock is created.",
+  "defaults": {
+    "phase": "confirmation",
+    "study": "confirmation_exact",
+    "budget": {
+      "limit": 8192,
+      "tolerance": 19
+    }
+  },
+  "grid": {
+    "problem.dim": [
+      10,
+      30,
+      50
+    ],
+    "problem.family": [
+      "close",
+      "rare",
+      "sheared",
+      "collinear_gmm"
+    ],
+    "distribution_seed": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "seed": [
+      1000,
+      1001,
+      1002
+    ]
+  },
+  "variants": [
+    {
+      "label": "M1_ddim",
+      "config": {
+        "method": {
+          "name": "sampling",
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "M2_single",
+      "config": {
+        "method": {
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "M3_multi",
+      "config": {
+        "method": {}
+      }
+    },
+    {
+      "label": "M4_merge",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "radius_factor": 0.8,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "M6_split_v2",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v2"
+          }
+        }
+      }
+    },
+    {
+      "label": "M7_extra_starts",
+      "config": {
+        "method": {
+          "refill": "restarts"
+        }
+      }
+    },
+    {
+      "label": "M8_merge_restarts",
+      "config": {
+        "method": {
+          "refill": "restarts",
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "radius_factor": 0.8,
+            "representative": "mean"
+          }
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "single_vs_multi",
+      "left": "M2_single",
+      "right": "M3_multi",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    },
+    {
+      "id": "merge_vs_multi",
+      "left": "M4_merge",
+      "right": "M3_multi",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    },
+    {
+      "id": "split_vs_extra",
+      "left": "M6_split_v2",
+      "right": "M7_extra_starts",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    },
+    {
+      "id": "merge_restarts_vs_extra",
+      "left": "M8_merge_restarts",
+      "right": "M7_extra_starts",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    },
+    {
+      "id": "split_vs_no_split",
+      "left": "M6_split_v2",
+      "right": "M3_multi",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    },
+    {
+      "id": "multi_vs_ddim",
+      "left": "M3_multi",
+      "right": "M1_ddim",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    }
+  ]
+}

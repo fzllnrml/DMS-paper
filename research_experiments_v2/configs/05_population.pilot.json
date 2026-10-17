@@ -1,0 +1,173 @@
+{
+  "version": 2,
+  "description": "P is varied independently of the NFE budget and K output protocols.",
+  "defaults": {
+    "study": "population",
+    "budget": {
+      "limit": 8192,
+      "tolerance": 19
+    }
+  },
+  "grid": {
+    "problem.dim": [
+      10,
+      30,
+      50
+    ],
+    "problem.family": [
+      "rare",
+      "many"
+    ],
+    "distribution_seed": [
+      0,
+      1,
+      2
+    ],
+    "seed": [
+      0,
+      1
+    ],
+    "population": [
+      4,
+      16
+    ]
+  },
+  "variants": [
+    {
+      "label": "M3_multi",
+      "config": {
+        "method": {}
+      }
+    },
+    {
+      "label": "M6_split_v2",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v2"
+          }
+        }
+      }
+    },
+    {
+      "label": "M7_extra_starts",
+      "config": {
+        "method": {
+          "refill": "restarts"
+        }
+      }
+    },
+    {
+      "label": "M8_merge_restarts",
+      "config": {
+        "method": {
+          "refill": "restarts",
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "radius_factor": 0.8,
+            "representative": "mean"
+          }
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "split_vs_extra",
+      "left": "M6_split_v2",
+      "right": "M7_extra_starts",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    },
+    {
+      "id": "merge_restarts_vs_extra",
+      "left": "M8_merge_restarts",
+      "right": "M7_extra_starts",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    },
+    {
+      "id": "split_vs_no_split",
+      "left": "M6_split_v2",
+      "right": "M3_multi",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "family": [
+          "rare",
+          "close"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      },
+      "primary_metrics": [
+        "one_to_one_recall",
+        "rare_recall"
+      ]
+    }
+  ]
+}

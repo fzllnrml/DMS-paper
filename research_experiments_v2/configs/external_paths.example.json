@@ -1,0 +1,7 @@
+{
+  "runs/mnist/checkpoints/best.pt": "/Volumes/research/models/mnist42.pt",
+  "runs/mnist_seed43/checkpoints/best.pt": "/Volumes/research/models/mnist43.pt",
+  "runs/mnist_seed44/checkpoints/best.pt": "/Volumes/research/models/mnist44.pt",
+  "runs/mnist_evaluator/best.pt": "/Volumes/research/models/frozen_evaluator.pt",
+  "checkpoints/dim_10/model_dim10_K2_dseed0.pth": "/Volumes/research/models/synthetic10_K2_seed0.pth"
+}

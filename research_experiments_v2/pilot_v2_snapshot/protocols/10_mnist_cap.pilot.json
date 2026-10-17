@@ -1,0 +1,2900 @@
+{
+  "path": "/Users/ramil/Desktop/DMS-paper/research_experiments_v2/configs/10_mnist_cap.pilot.json",
+  "jobs": [
+    {
+      "label": "multi_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 0,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "multi_l2_003-00bb85a75493b515491b"
+    },
+    {
+      "label": "multi_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 1,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "multi_l2_003-edc07844bcdd8e3d04f2"
+    },
+    {
+      "label": "multi_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 2,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "multi_l2_003-66727ace4c2d69b59ef8"
+    },
+    {
+      "label": "multi_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 3,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "multi_l2_003-450813d106e724abe4de"
+    },
+    {
+      "label": "multi_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 4,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "multi_l2_003-5d5798f7fdfa49e40469"
+    },
+    {
+      "label": "single300_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 0,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            300
+          ],
+          "steps": 45,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "single300_l2_003-457290c480eb56199634"
+    },
+    {
+      "label": "single300_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 1,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            300
+          ],
+          "steps": 45,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "single300_l2_003-49edd352fe0f7042e75d"
+    },
+    {
+      "label": "single300_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 2,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            300
+          ],
+          "steps": 45,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "single300_l2_003-5f7072d03c1bb1501958"
+    },
+    {
+      "label": "single300_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 3,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            300
+          ],
+          "steps": 45,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "single300_l2_003-b6cdb63042604b645720"
+    },
+    {
+      "label": "single300_l2_003",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 4,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            300
+          ],
+          "steps": 45,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "single300_l2_003-0c0fc61b51727296e24e"
+    },
+    {
+      "label": "merge_mean_r020",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 0,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "every",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "rms",
+            "linkage": "complete",
+            "representative": "mean",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "merge_mean_r020-eb36a6c14bde3bcb2070"
+    },
+    {
+      "label": "merge_mean_r020",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 1,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "every",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "rms",
+            "linkage": "complete",
+            "representative": "mean",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "merge_mean_r020-4e9036226d2a8c93ada8"
+    },
+    {
+      "label": "merge_mean_r020",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 2,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "every",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "rms",
+            "linkage": "complete",
+            "representative": "mean",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "merge_mean_r020-33307ff1c14c8f768500"
+    },
+    {
+      "label": "merge_mean_r020",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 3,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "every",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "rms",
+            "linkage": "complete",
+            "representative": "mean",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "merge_mean_r020-f3d817906c6c6dc62534"
+    },
+    {
+      "label": "merge_mean_r020",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 4,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "ascent",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "every",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "rms",
+            "linkage": "complete",
+            "representative": "mean",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "merge_mean_r020-a279e44fa6f0ab772877"
+    },
+    {
+      "label": "DDIM50_P128",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 0,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "sampling",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "DDIM50_P128-9e77ad3af503ad874fcf"
+    },
+    {
+      "label": "DDIM50_P128",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 1,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "sampling",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "DDIM50_P128-5bcccbefdbbddd718469"
+    },
+    {
+      "label": "DDIM50_P128",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 2,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "sampling",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "DDIM50_P128-7501baeee00ff4cf6002"
+    },
+    {
+      "label": "DDIM50_P128",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 3,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "sampling",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "DDIM50_P128-637c055c1681a8d98ab6"
+    },
+    {
+      "label": "DDIM50_P128",
+      "config": {
+        "domain": "mnist",
+        "field": "learned",
+        "phase": "pilot_tune",
+        "study": "mnist_cap",
+        "device": "auto",
+        "seed": 4,
+        "distribution_seed": 0,
+        "model_seed": 42,
+        "population": 128,
+        "problem": {
+          "family": "mnist",
+          "dim": 784,
+          "components": 2,
+          "rare_weight": 0.003
+        },
+        "budget": {
+          "limit": 13440,
+          "regime": "cap",
+          "tolerance": 0
+        },
+        "initialization": {
+          "steps": 50,
+          "source": "self",
+          "cache": true
+        },
+        "method": {
+          "name": "sampling",
+          "levels": [
+            800,
+            500,
+            300,
+            200,
+            100,
+            50,
+            20,
+            5,
+            0
+          ],
+          "steps": 5,
+          "step_size": 0.03,
+          "step_mode": "l2",
+          "coordinate_mode": "indexed",
+          "final_steps": 10,
+          "final_scale": 0.1,
+          "final_t": 0,
+          "tolerance": 0.0,
+          "box": [
+            -1.0,
+            1.0
+          ],
+          "projection": "clamp",
+          "merge": {
+            "when": "none",
+            "radius": 0.2,
+            "radius_factor": null,
+            "metric": "l2",
+            "linkage": "complete",
+            "representative": "medoid",
+            "every": 1,
+            "selected": [],
+            "stable_threshold": null,
+            "direction_cosine": null
+          },
+          "split": {
+            "kind": "none",
+            "delta": 2.5,
+            "absolute_threshold": 0.8,
+            "amplification": 2.5,
+            "fd_eps": 0.001,
+            "eigen_threshold": -1.0,
+            "max_directions": 2,
+            "probe_steps": 3,
+            "max_particles": 256
+          },
+          "save_every_step": false,
+          "historical_kwargs": {},
+          "implementation": "population",
+          "refill": "none",
+          "stable_window": 3,
+          "stable_score_max": 0.1,
+          "split_levels": [
+            100,
+            20,
+            0
+          ]
+        },
+        "outputs": [
+          {
+            "name": "native",
+            "kind": "radius",
+            "k": null,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "le128",
+            "kind": "at_most",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          },
+          {
+            "name": "eq128",
+            "kind": "exact",
+            "k": 128,
+            "radius": 0.05,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        ],
+        "checkpoint": "runs/mnist/checkpoints/best.pt",
+        "model": {
+          "T": 1000,
+          "beta_start": 0.0001,
+          "beta_end": 0.02,
+          "activation": "silu"
+        },
+        "evaluation": {
+          "radii": [
+            0.1,
+            0.25,
+            0.5,
+            1.0
+          ],
+          "alignment": false,
+          "basin_diagnostics": false,
+          "diagnostic_points": 16
+        },
+        "mnist": {
+          "evaluator_checkpoint": "runs/mnist_evaluator/best.pt",
+          "data_root": "data/mnist",
+          "train_limit": null,
+          "validation_limit": 1024,
+          "knn_k": 5,
+          "train_close_quantile": 0.01,
+          "near_duplicate_rms": 0.02
+        }
+      },
+      "id": "DDIM50_P128-74b8e612957b23791756"
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "cap_merge_vs_multi",
+      "left": "merge_mean_r020",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "cap_multi_vs_DDIM",
+      "left": "multi_l2_003",
+      "right": "DDIM50_P128",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    }
+  ],
+  "config_digest": "3b071c74c63d1f8935a7ee5729c501aca6402465b0472f670688bba0617136f3"
+}

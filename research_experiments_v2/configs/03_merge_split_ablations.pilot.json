@@ -1,0 +1,241 @@
+{
+  "version": 2,
+  "description": "Post hoc certified clean-basin false-Merge audit; original v3f1 and explicitly changed softness branch are separate treatments.",
+  "defaults": {
+    "study": "merge_split_ablations",
+    "budget": {
+      "limit": 8192,
+      "tolerance": 19
+    }
+  },
+  "grid": {
+    "problem.dim": [
+      10,
+      30,
+      50
+    ],
+    "problem.family": [
+      "close",
+      "rare",
+      "sheared"
+    ],
+    "distribution_seed": [
+      0,
+      1,
+      2
+    ],
+    "seed": [
+      0,
+      1
+    ]
+  },
+  "variants": [
+    {
+      "label": "no_merge",
+      "config": {
+        "method": {}
+      }
+    },
+    {
+      "label": "merge_mean_r025",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "merge_mean_r05",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.5,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "merge_mean_r10",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 1.0,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "merge_medoid_r05",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.5,
+            "representative": "medoid"
+          }
+        }
+      }
+    },
+    {
+      "label": "merge_noise_scaled",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "radius_factor": 0.8,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "merge_stable",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "stable",
+            "radius": 0.5,
+            "stable_threshold": 0.035,
+            "representative": "mean"
+          },
+          "stable_score_max": 0.1
+        }
+      }
+    },
+    {
+      "label": "merge_direction_gate",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.5,
+            "representative": "medoid",
+            "direction_cosine": 0.8
+          }
+        }
+      }
+    },
+    {
+      "label": "split_v3f1_softness_v2",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v3f1_softness_v2"
+          }
+        }
+      }
+    },
+    {
+      "label": "split_v3f1_unchanged",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v3f1"
+          }
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "merge_radius_025_vs_05",
+      "left": "merge_mean_r025",
+      "right": "merge_mean_r05",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "merge_radius_10_vs_05",
+      "left": "merge_mean_r10",
+      "right": "merge_mean_r05",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "representative_medoid_vs_mean",
+      "left": "merge_medoid_r05",
+      "right": "merge_mean_r05",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "stable_vs_unconditional",
+      "left": "merge_stable",
+      "right": "merge_mean_r05",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "noise_radius_vs_constant",
+      "left": "merge_noise_scaled",
+      "right": "merge_mean_r025",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "direction_gate",
+      "left": "merge_direction_gate",
+      "right": "merge_medoid_r05",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "v3f1_softness_changed_branch",
+      "left": "split_v3f1_softness_v2",
+      "right": "split_v3f1_unchanged",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    }
+  ]
+}

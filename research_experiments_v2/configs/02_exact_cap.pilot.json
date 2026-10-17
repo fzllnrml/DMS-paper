@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "description": "Cap protocol: unequal actual spending is descriptive, never called fixed-NFE. Restart labels are omitted because no saved budget is spent.",
+  "defaults": {
+    "study": "exact_cap",
+    "budget": {
+      "limit": 8192,
+      "regime": "cap",
+      "tolerance": 0
+    }
+  },
+  "grid": {
+    "problem.dim": [
+      10,
+      30,
+      50
+    ],
+    "problem.family": [
+      "close",
+      "rare",
+      "sheared"
+    ],
+    "distribution_seed": [
+      0,
+      1,
+      2
+    ],
+    "seed": [
+      0,
+      1
+    ]
+  },
+  "variants": [
+    {
+      "label": "cap_M1_ddim",
+      "config": {
+        "method": {
+          "name": "sampling",
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "cap_M2_single",
+      "config": {
+        "method": {
+          "levels": [
+            0
+          ],
+          "steps": 45,
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "cap_M3_multi",
+      "config": {
+        "method": {
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "cap_M4_merge",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "radius_factor": 0.8,
+            "representative": "mean"
+          },
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "cap_M6_split_v2",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v2"
+          },
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "cap_split_v3f1_original_kernel",
+      "config": {
+        "method": {
+          "split": {
+            "kind": "v3f1"
+          },
+          "refill": "none"
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "cap_merge_savings",
+      "left": "cap_M4_merge",
+      "right": "cap_M3_multi",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "cap_split_cost",
+      "left": "cap_M6_split_v2",
+      "right": "cap_M3_multi",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "cap_sampling",
+      "left": "cap_M3_multi",
+      "right": "cap_M1_ddim",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    }
+  ]
+}

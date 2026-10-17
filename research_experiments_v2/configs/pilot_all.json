@@ -1,0 +1,17 @@
+{
+  "format": "dms_v2_manifest",
+  "phase": "pilot",
+  "studies": [
+    "configs/01_exact_mechanisms.pilot.json",
+    "configs/02_exact_cap.pilot.json",
+    "configs/03_merge_split_ablations.pilot.json",
+    "configs/04_exact_steps.pilot.json",
+    "configs/05_population.pilot.json",
+    "configs/06_original_controls.pilot.json",
+    "configs/07_exact_learned.pilot.json",
+    "configs/08_mnist_tuning.pilot.json",
+    "configs/09_mnist_transfer.pilot.json",
+    "configs/10_mnist_cap.pilot.json"
+  ],
+  "selection_rules": "docs/SELECTION_AND_CONFIRMATION_RU.md"
+}

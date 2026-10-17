@@ -1,0 +1,1306 @@
+{
+  "version": 2,
+  "description": "New held-out search seeds on old fixed models43/44. Conditional inference, not evidence from new independent model trainings. Only locked selected treatments run.",
+  "defaults": {
+    "domain": "mnist",
+    "field": "learned",
+    "phase": "confirmation",
+    "study": "confirmation_mnist",
+    "model_seed": 42,
+    "problem": {
+      "family": "mnist",
+      "dim": 784
+    },
+    "population": 128,
+    "budget": {
+      "limit": 13440,
+      "tolerance": 49
+    },
+    "initialization": {
+      "steps": 50
+    },
+    "checkpoint": "runs/{mnist_run}/checkpoints/best.pt",
+    "method": {
+      "step_size": 0.03,
+      "box": [
+        -1.0,
+        1.0
+      ]
+    },
+    "outputs": [
+      {
+        "name": "native",
+        "kind": "radius",
+        "k": null,
+        "radius": 0.05,
+        "metric": "rms",
+        "representative": "medoid"
+      },
+      {
+        "name": "le128",
+        "kind": "at_most",
+        "k": 128,
+        "radius": 0.05,
+        "metric": "rms",
+        "representative": "medoid"
+      },
+      {
+        "name": "eq128",
+        "kind": "exact",
+        "k": 128,
+        "radius": 0.05,
+        "metric": "rms",
+        "representative": "medoid"
+      }
+    ],
+    "evaluation": {
+      "basin_diagnostics": false
+    }
+  },
+  "grid": {
+    "model_seed": [
+      43,
+      44
+    ],
+    "seed": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004
+    ]
+  },
+  "variants": [
+    {
+      "label": "multi_l2_001",
+      "config": {
+        "method": {
+          "step_size": 0.01
+        }
+      }
+    },
+    {
+      "label": "short_l2_001",
+      "config": {
+        "method": {
+          "step_size": 0.01,
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      }
+    },
+    {
+      "label": "single0_l2_001",
+      "config": {
+        "method": {
+          "step_size": 0.01,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single100_l2_001",
+      "config": {
+        "method": {
+          "step_size": 0.01,
+          "levels": [
+            100
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single300_l2_001",
+      "config": {
+        "method": {
+          "step_size": 0.01,
+          "levels": [
+            300
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single500_l2_001",
+      "config": {
+        "method": {
+          "step_size": 0.01,
+          "levels": [
+            500
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "multi_l2_003",
+      "config": {
+        "method": {
+          "step_size": 0.03
+        }
+      }
+    },
+    {
+      "label": "short_l2_003",
+      "config": {
+        "method": {
+          "step_size": 0.03,
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      }
+    },
+    {
+      "label": "single0_l2_003",
+      "config": {
+        "method": {
+          "step_size": 0.03,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single100_l2_003",
+      "config": {
+        "method": {
+          "step_size": 0.03,
+          "levels": [
+            100
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single300_l2_003",
+      "config": {
+        "method": {
+          "step_size": 0.03,
+          "levels": [
+            300
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single500_l2_003",
+      "config": {
+        "method": {
+          "step_size": 0.03,
+          "levels": [
+            500
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "multi_l2_006",
+      "config": {
+        "method": {
+          "step_size": 0.06
+        }
+      }
+    },
+    {
+      "label": "short_l2_006",
+      "config": {
+        "method": {
+          "step_size": 0.06,
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      }
+    },
+    {
+      "label": "single0_l2_006",
+      "config": {
+        "method": {
+          "step_size": 0.06,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single100_l2_006",
+      "config": {
+        "method": {
+          "step_size": 0.06,
+          "levels": [
+            100
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single300_l2_006",
+      "config": {
+        "method": {
+          "step_size": 0.06,
+          "levels": [
+            300
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single500_l2_006",
+      "config": {
+        "method": {
+          "step_size": 0.06,
+          "levels": [
+            500
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "multi_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1
+        }
+      }
+    },
+    {
+      "label": "short_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      }
+    },
+    {
+      "label": "single0_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single100_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            100
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single300_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            300
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "single500_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            500
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "merge_mean_r010",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.1,
+            "metric": "rms",
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "merge_mean_r020",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.2,
+            "metric": "rms",
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "merge_mean_r035",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.35,
+            "metric": "rms",
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "merge_medoid_r020",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.2,
+            "metric": "rms",
+            "representative": "medoid"
+          }
+        }
+      }
+    },
+    {
+      "label": "DDIM105",
+      "config": {
+        "initialization": {
+          "steps": 105
+        },
+        "method": {
+          "name": "sampling",
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "DDIM50_matched_pool",
+      "config": {
+        "method": {
+          "name": "sampling",
+          "refill": "none"
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "single0_vs_multi_001",
+      "left": "single0_l2_001",
+      "right": "multi_l2_001",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single100_vs_multi_001",
+      "left": "single100_l2_001",
+      "right": "multi_l2_001",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single300_vs_multi_001",
+      "left": "single300_l2_001",
+      "right": "multi_l2_001",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single500_vs_multi_001",
+      "left": "single500_l2_001",
+      "right": "multi_l2_001",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "short_vs_multi_001",
+      "left": "short_l2_001",
+      "right": "multi_l2_001",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single0_vs_multi_003",
+      "left": "single0_l2_003",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "single100_vs_multi_003",
+      "left": "single100_l2_003",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "single300_vs_multi_003",
+      "left": "single300_l2_003",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "single500_vs_multi_003",
+      "left": "single500_l2_003",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "short_vs_multi_003",
+      "left": "short_l2_003",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single0_vs_multi_006",
+      "left": "single0_l2_006",
+      "right": "multi_l2_006",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single100_vs_multi_006",
+      "left": "single100_l2_006",
+      "right": "multi_l2_006",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single300_vs_multi_006",
+      "left": "single300_l2_006",
+      "right": "multi_l2_006",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single500_vs_multi_006",
+      "left": "single500_l2_006",
+      "right": "multi_l2_006",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "short_vs_multi_006",
+      "left": "short_l2_006",
+      "right": "multi_l2_006",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single0_vs_multi_010",
+      "left": "single0_l2_010",
+      "right": "multi_l2_010",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single100_vs_multi_010",
+      "left": "single100_l2_010",
+      "right": "multi_l2_010",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single300_vs_multi_010",
+      "left": "single300_l2_010",
+      "right": "multi_l2_010",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single500_vs_multi_010",
+      "left": "single500_l2_010",
+      "right": "multi_l2_010",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "short_vs_multi_010",
+      "left": "short_l2_010",
+      "right": "multi_l2_010",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "large_step_vs_base",
+      "left": "multi_l2_006",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      },
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ]
+    },
+    {
+      "id": "merge_diversity",
+      "left": "merge_mean_r020",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      },
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ]
+    },
+    {
+      "id": "multi_vs_DDIM105",
+      "left": "multi_l2_003",
+      "right": "DDIM105",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "noise",
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      },
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ]
+    },
+    {
+      "id": "multi_vs_DDIM50_pool",
+      "left": "multi_l2_003",
+      "right": "DDIM50_matched_pool",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      },
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ]
+    },
+    {
+      "id": "optimized_single0_l2_001_vs_current_multi003",
+      "left": "single0_l2_001",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single100_l2_001_vs_current_multi003",
+      "left": "single100_l2_001",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single300_l2_001_vs_current_multi003",
+      "left": "single300_l2_001",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single500_l2_001_vs_current_multi003",
+      "left": "single500_l2_001",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single0_l2_006_vs_current_multi003",
+      "left": "single0_l2_006",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single100_l2_006_vs_current_multi003",
+      "left": "single100_l2_006",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single300_l2_006_vs_current_multi003",
+      "left": "single300_l2_006",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single500_l2_006_vs_current_multi003",
+      "left": "single500_l2_006",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single0_l2_010_vs_current_multi003",
+      "left": "single0_l2_010",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single100_l2_010_vs_current_multi003",
+      "left": "single100_l2_010",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single300_l2_010_vs_current_multi003",
+      "left": "single300_l2_010",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    },
+    {
+      "id": "optimized_single500_l2_010_vs_current_multi003",
+      "left": "single500_l2_010",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "pixel_knn",
+        "feature_knn"
+      ],
+      "primary_filters": {
+        "output_policy": [
+          "native"
+        ],
+        "budget": [
+          13440
+        ],
+        "radius": [
+          null
+        ]
+      }
+    }
+  ]
+}

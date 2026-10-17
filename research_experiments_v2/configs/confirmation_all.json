@@ -1,0 +1,10 @@
+{
+  "format": "dms_v2_manifest",
+  "phase": "confirmation",
+  "studies": [
+    "configs/confirmation_exact.blueprint.json",
+    "configs/confirmation_exact_cap.blueprint.json",
+    "configs/confirmation_mnist.blueprint.json"
+  ],
+  "requires_lock": true
+}

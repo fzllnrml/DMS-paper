@@ -1,0 +1,216 @@
+{
+  "version": 2,
+  "description": "Equal 45 main +10 final score evaluations per particle. Every step/schedule combination is its own treatment.",
+  "defaults": {
+    "study": "exact_steps",
+    "budget": {
+      "limit": 2048,
+      "tolerance": 19
+    }
+  },
+  "grid": {
+    "problem.dim": [
+      10,
+      30,
+      50
+    ],
+    "problem.family": [
+      "close",
+      "rare",
+      "many"
+    ],
+    "distribution_seed": [
+      0,
+      1,
+      2
+    ],
+    "seed": [
+      0,
+      1
+    ]
+  },
+  "variants": [
+    {
+      "label": "multi_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1
+        }
+      }
+    },
+    {
+      "label": "single_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "short_l2_010",
+      "config": {
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      }
+    },
+    {
+      "label": "multi_l2_030",
+      "config": {
+        "method": {
+          "step_size": 0.3
+        }
+      }
+    },
+    {
+      "label": "single_l2_030",
+      "config": {
+        "method": {
+          "step_size": 0.3,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "short_l2_030",
+      "config": {
+        "method": {
+          "step_size": 0.3,
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      }
+    },
+    {
+      "label": "multi_l2_060",
+      "config": {
+        "method": {
+          "step_size": 0.6
+        }
+      }
+    },
+    {
+      "label": "single_l2_060",
+      "config": {
+        "method": {
+          "step_size": 0.6,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "short_l2_060",
+      "config": {
+        "method": {
+          "step_size": 0.6,
+          "levels": [
+            500,
+            100,
+            0
+          ],
+          "steps": 15
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "single_vs_multi_010",
+      "left": "single_l2_010",
+      "right": "multi_l2_010",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single_vs_multi_030",
+      "left": "single_l2_030",
+      "right": "multi_l2_030",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "single_vs_multi_060",
+      "left": "single_l2_060",
+      "right": "multi_l2_060",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "short_vs_multi_010",
+      "left": "short_l2_010",
+      "right": "multi_l2_010",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "short_vs_multi_030",
+      "left": "short_l2_030",
+      "right": "multi_l2_030",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "short_vs_multi_060",
+      "left": "short_l2_060",
+      "right": "multi_l2_060",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    }
+  ]
+}

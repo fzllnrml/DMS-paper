@@ -1,0 +1,151 @@
+{
+  "version": 2,
+  "description": "P128 DDIM50 baseline and unspent Merge savings: cap-only cost/quality controls, not matched-spending evidence.",
+  "defaults": {
+    "domain": "mnist",
+    "field": "learned",
+    "phase": "pilot_tune",
+    "study": "mnist_cap",
+    "model_seed": 42,
+    "problem": {
+      "family": "mnist",
+      "dim": 784
+    },
+    "population": 128,
+    "budget": {
+      "limit": 13440,
+      "regime": "cap",
+      "tolerance": 0
+    },
+    "initialization": {
+      "steps": 50
+    },
+    "checkpoint": "runs/{mnist_run}/checkpoints/best.pt",
+    "method": {
+      "step_size": 0.03,
+      "box": [
+        -1.0,
+        1.0
+      ]
+    },
+    "outputs": [
+      {
+        "name": "native",
+        "kind": "radius",
+        "k": null,
+        "radius": 0.05,
+        "metric": "rms",
+        "representative": "medoid"
+      },
+      {
+        "name": "le128",
+        "kind": "at_most",
+        "k": 128,
+        "radius": 0.05,
+        "metric": "rms",
+        "representative": "medoid"
+      },
+      {
+        "name": "eq128",
+        "kind": "exact",
+        "k": 128,
+        "radius": 0.05,
+        "metric": "rms",
+        "representative": "medoid"
+      }
+    ],
+    "evaluation": {
+      "basin_diagnostics": false
+    }
+  },
+  "grid": {
+    "seed": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "variants": [
+    {
+      "label": "multi_l2_003",
+      "config": {
+        "method": {
+          "step_size": 0.03,
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "single300_l2_003",
+      "config": {
+        "method": {
+          "step_size": 0.03,
+          "levels": [
+            300
+          ],
+          "steps": 45,
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "merge_mean_r020",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.2,
+            "metric": "rms",
+            "representative": "mean"
+          },
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "DDIM50_P128",
+      "config": {
+        "method": {
+          "name": "sampling",
+          "refill": "none"
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "cap_merge_vs_multi",
+      "left": "merge_mean_r020",
+      "right": "multi_l2_003",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "cap_multi_vs_DDIM",
+      "left": "multi_l2_003",
+      "right": "DDIM50_P128",
+      "metrics": [
+        "pixel_knn",
+        "feature_knn",
+        "K",
+        "class_entropy",
+        "pairwise_rms",
+        "near_duplicate_fraction",
+        "pixel_train_extreme_close_fraction",
+        "feature_train_extreme_close_fraction"
+      ],
+      "pairing": "starts"
+    }
+  ]
+}

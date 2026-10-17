@@ -1,0 +1,109 @@
+{
+  "version": 2,
+  "description": "Actual original classes with shared external DDIM starts and original stopping rules. Interrupted legacy returns are provisional and excluded. Not a recreation of old built-in smart initialization.",
+  "defaults": {
+    "study": "original_controls",
+    "budget": {
+      "limit": 8192,
+      "regime": "cap",
+      "tolerance": 0
+    }
+  },
+  "grid": {
+    "problem.dim": [
+      10,
+      30,
+      50
+    ],
+    "problem.family": [
+      "close",
+      "rare"
+    ],
+    "distribution_seed": [
+      0,
+      1,
+      2
+    ],
+    "seed": [
+      0,
+      1
+    ]
+  },
+  "variants": [
+    {
+      "label": "original_v2_shared_starts",
+      "config": {
+        "method": {
+          "implementation": "historical_v2",
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "original_v3f1_shared_starts",
+      "config": {
+        "method": {
+          "implementation": "historical_v3f1",
+          "refill": "none"
+        }
+      }
+    },
+    {
+      "label": "original_v3f2_shared_starts",
+      "config": {
+        "method": {
+          "implementation": "historical_v3f2",
+          "refill": "none",
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "radius_factor": 0.8,
+            "representative": "mean"
+          }
+        }
+      }
+    },
+    {
+      "label": "v2_coordinator_v3f2",
+      "config": {
+        "method": {
+          "refill": "none",
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "radius_factor": 0.8,
+            "representative": "mean"
+          }
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "original_v2_vs_v3f1",
+      "left": "original_v2_shared_starts",
+      "right": "original_v3f1_shared_starts",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "v3f2_adapter_parity",
+      "left": "original_v3f2_shared_starts",
+      "right": "v2_coordinator_v3f2",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    }
+  ]
+}

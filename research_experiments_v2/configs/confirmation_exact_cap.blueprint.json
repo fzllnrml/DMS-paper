@@ -1,0 +1,90 @@
+{
+  "version": 2,
+  "description": "Locked confirmation of Merge savings under a common cap, with coverage noninferiority. Same policy parameters as matched-budget controls; refill is inactive under cap.",
+  "defaults": {
+    "phase": "confirmation",
+    "study": "confirmation_exact_cap",
+    "budget": {
+      "limit": 8192,
+      "regime": "cap",
+      "tolerance": 0
+    }
+  },
+  "grid": {
+    "problem.dim": [
+      10,
+      30,
+      50
+    ],
+    "problem.family": [
+      "close",
+      "rare"
+    ],
+    "distribution_seed": [
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "seed": [
+      1000,
+      1001,
+      1002
+    ]
+  },
+  "variants": [
+    {
+      "label": "M3_multi",
+      "config": {
+        "method": {}
+      }
+    },
+    {
+      "label": "M4_merge",
+      "config": {
+        "method": {
+          "merge": {
+            "when": "every",
+            "radius": 0.25,
+            "radius_factor": 0.8,
+            "representative": "mean"
+          }
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "merge_cap_savings",
+      "left": "M4_merge",
+      "right": "M3_multi",
+      "metrics": [
+        "queries",
+        "one_to_one_recall",
+        "rare_recall",
+        "K"
+      ],
+      "pairing": "starts",
+      "primary_metrics": [
+        "queries",
+        "one_to_one_recall"
+      ],
+      "primary_filters": {
+        "family": [
+          "close",
+          "rare"
+        ],
+        "output_policy": [
+          "le8"
+        ],
+        "budget": [
+          8192
+        ],
+        "radius": [
+          0.25
+        ]
+      }
+    }
+  ]
+}

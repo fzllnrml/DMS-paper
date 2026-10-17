@@ -1,0 +1,115 @@
+{
+  "version": 2,
+  "description": "Existing K=2 synthetic checkpoints only. Indexed t=0 equals the actual checkpoint schedule, not clean alpha=1. Missing training metadata is flagged; no unconditional learned-error attribution.",
+  "defaults": {
+    "domain": "alignment",
+    "study": "exact_learned",
+    "problem": {
+      "family": "legacy_alignment",
+      "components": 2
+    },
+    "population": 16,
+    "budget": {
+      "limit": 4096,
+      "tolerance": 0
+    },
+    "initialization": {
+      "steps": 50,
+      "source": "learned"
+    },
+    "checkpoint": "checkpoints/dim_{dim}/model_dim{dim}_K{components}_dseed{distribution_seed}.pth",
+    "evaluation": {
+      "alignment": true
+    }
+  },
+  "grid": {
+    "problem.dim": [
+      10,
+      30,
+      50
+    ],
+    "distribution_seed": [
+      0,
+      1,
+      2
+    ],
+    "seed": [
+      0,
+      1
+    ]
+  },
+  "variants": [
+    {
+      "label": "exact_multi",
+      "config": {
+        "field": "exact",
+        "method": {
+          "step_size": 0.1
+        }
+      }
+    },
+    {
+      "label": "exact_single",
+      "config": {
+        "field": "exact",
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    },
+    {
+      "label": "learned_multi",
+      "config": {
+        "field": "learned",
+        "method": {
+          "step_size": 0.1
+        }
+      }
+    },
+    {
+      "label": "learned_single",
+      "config": {
+        "field": "learned",
+        "method": {
+          "step_size": 0.1,
+          "levels": [
+            0
+          ],
+          "steps": 45
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "id": "learned_vs_exact_multi",
+      "left": "learned_multi",
+      "right": "exact_multi",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    },
+    {
+      "id": "learned_vs_exact_single",
+      "left": "learned_single",
+      "right": "exact_single",
+      "metrics": [
+        "one_to_one_recall",
+        "rare_recall",
+        "soft_error",
+        "K",
+        "queries"
+      ],
+      "pairing": "starts"
+    }
+  ]
+}
